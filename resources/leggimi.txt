@@ -1,15 +1,23 @@
-PRBM 0.6.x
 
+      PRBM - Percorso Rettificato belga Multimediale
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+                     versione 0.6.6
+   
 Requisiti
+~~~~~~~~~
 -jre 1.1.7 o successivi (funzionante)
 
-Installazione:
-- scompattare in una directory l'archivio contenente il programma
-- aprire un prompt di comandi DOS
-- andare nella directory nella quale si e' scompattato il programma
-- digitare: java -jar prbm.jar
-- premere invio
-- have fun
+Installazione
+~~~~~~~~~~~~~
+1. scompattare in una directory l'archivio contenente il programma
+2. aprire un prompt di comandi DOS
+3. andare nella directory nella quale si e' scompattato il programma
+4. digitare: java -jar prbm.jar
+5. premere Invio
+.. have fun
 
-Note: Se il JRE e' installato a modo per lanciare il programma e' sufficiente
-fare doppio-click sulla icona con il nome prb.jar .
+Note
+~~~~
+1. Se il JRE e' installato a modo per lanciare il programma e' sufficiente
+   fare doppio-click sulla icona con il nome prb.jar .
