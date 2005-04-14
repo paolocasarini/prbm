@@ -1,0 +1,51 @@
+<project name="prbm" default="compile" basedir=".">
+  <description>
+    Percorso Rettificato Belga Multimediale
+  </description>
+
+  <!-- imposta le property globali -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="resources" location="resources"/>
+  <property name="icone"  location="${resources}/icone"/>
+  <property name="paesaggi"  location="${resources}/paesaggi"/>
+
+  <target name="prepare" description="prepara l'ambiente di compilazione">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+    <copy todir="${build}/icone">
+      <fileset dir="${icone}"/>
+    </copy>
+    <copy todir="${build}/paesaggi">
+      <fileset dir="${paesaggi}"/>
+    </copy>
+  </target>
+
+  <target name="compile" depends="prepare" description="compila il codice sorgente" >
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile" description="genera la distribuzione" >
+    <mkdir dir="${dist}"/>
+    <copy todir="${dist}">
+      <fileset dir="${resources}"/>
+    </copy>
+
+    <jar destfile="${dist}/${ant.project.name}-${DSTAMP}.jar">
+      <fileset dir="${build}">
+        <exclude name="icone/**"/>
+        <exclude name="paesaggi/**"/>
+      </fileset>
+      <manifest>
+        <attribute name="Main-Class" value="org.casarini.prbm.gui.PRB"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="clean" description="ripulisce la directory di compilazione e distribuzione" >
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+
+</project>
