@@ -30,6 +30,7 @@ import org.casarini.prbm.model.Monumento;
 import org.casarini.prbm.model.Resource;
 import org.casarini.prbm.model.TimeStamp;
 import org.casarini.prbm.util.DiskUtil;
+import org.casarini.prbm.util.IconFactory;
 
 
 public class DialogEditMonumento extends Dialog
@@ -61,7 +62,7 @@ public class DialogEditMonumento extends Dialog
 		this.setTitle("Modifica scheda Monumento/Luogo Storico");
 		scheda=(Monumento)rs.scheda;
 		setBackground(Color.lightGray);
-		icone=(new File(icoDir)).list();
+		icone = (new File(DialogEditMonumento.class.getResource("../../resources/" + icoDir).getFile())).list();
 		if(scheda.icona.length()!=0)
 		{
 			boolean done=false;
@@ -81,11 +82,7 @@ public class DialogEditMonumento extends Dialog
 		fontN=new Font("Dialog", Font.PLAIN, 12);
 		fontB=new Font("Dialog", Font.BOLD, 12);
 
-        Toolkit tkit=getToolkit();
-        icona=tkit.getImage(scheda.icona);
-        MediaTracker tracker=new MediaTracker(this);
-        tracker.addImage(icona,0);
-        try{tracker.waitForID(0);}catch(Exception e){System.out.println(e.toString());}
+        icona = IconFactory.getInstance().getImage(scheda.icona);
 
 		setLayout(new BorderLayout(5,5));
 		setVisible(false);
@@ -521,11 +518,7 @@ public class DialogEditMonumento extends Dialog
 		iIcona--;
 		scheda.icona=icoDir+icone[iIcona];
 
-		Toolkit tkit=getToolkit();
-        icona=tkit.getImage(scheda.icona);
-        MediaTracker tracker=new MediaTracker(this);
-        tracker.addImage(icona,0);
-        try{tracker.waitForID(0);}catch(Exception e){System.out.println(e.toString());}
+        icona = IconFactory.getInstance().getImage(scheda.icona);
   		cIcona.setImage(icona);
 		cIcona.repaint();
 
@@ -537,11 +530,7 @@ public class DialogEditMonumento extends Dialog
 		iIcona++;
 		scheda.icona=icoDir+icone[iIcona];
 
-		Toolkit tkit=getToolkit();
-        icona=tkit.getImage(scheda.icona);
-        MediaTracker tracker=new MediaTracker(this);
-        tracker.addImage(icona,0);
-        try{tracker.waitForID(0);}catch(Exception e){System.out.println(e.toString());}
+        icona = IconFactory.getInstance().getImage(scheda.icona);
   		cIcona.setImage(icona);
 		cIcona.repaint();
 

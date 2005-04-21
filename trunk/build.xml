@@ -8,17 +8,13 @@
   <property name="build" location="build"/>
   <property name="dist"  location="dist"/>
   <property name="resources" location="resources"/>
-  <property name="icone"  location="${resources}/icone"/>
-  <property name="paesaggi"  location="${resources}/paesaggi"/>
 
   <target name="prepare" description="prepara l'ambiente di compilazione">
     <tstamp/>
     <mkdir dir="${build}"/>
-    <copy todir="${build}/icone">
-      <fileset dir="${icone}"/>
-    </copy>
-    <copy todir="${build}/paesaggi">
-      <fileset dir="${paesaggi}"/>
+    <mkdir dir="${build}/org/casarini/prbm/resources"/>
+    <copy todir="${build}/org/casarini/prbm/resources">
+      <fileset dir="${src}/org/casarini/prbm/resources"/>
     </copy>
   </target>
 
@@ -31,12 +27,12 @@
     <copy todir="${dist}">
       <fileset dir="${resources}"/>
     </copy>
+    <copy todir="${dist}/paesaggi">
+      <fileset dir="${src}/org/casarini/prbm/resources/paesaggi"/>
+    </copy>
 
     <jar destfile="${dist}/${ant.project.name}-${DSTAMP}.jar">
-      <fileset dir="${build}">
-        <exclude name="icone/**"/>
-        <exclude name="paesaggi/**"/>
-      </fileset>
+      <fileset dir="${build}"/>
       <manifest>
         <attribute name="Main-Class" value="org.casarini.prbm.gui.PRB"/>
       </manifest>

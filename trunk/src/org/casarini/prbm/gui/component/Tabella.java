@@ -54,6 +54,7 @@ import org.casarini.prbm.model.TimeStamp;
 import org.casarini.prbm.parser.PRBMParser;
 import org.casarini.prbm.parser.PRBMParserNode;
 import org.casarini.prbm.util.DiskUtil;
+import org.casarini.prbm.util.IconFactory;
 
 
 public class Tabella extends Canvas implements MouseListener,ActionListener
@@ -142,14 +143,9 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
         resize();
 
         //andiamoci a prendere le immagini
-        Toolkit tkit=getToolkit();
-        MediaTracker tracker=new MediaTracker(this);
-        for(int i=0;i<10;i++)
-        {
-            icone[i]=tkit.getImage("icone/ico"+Integer.toString(i)+".gif");
-            tracker.addImage(icone[i],i);
+        for(int i = 0; i < 10; i++) {
+            icone[i] = IconFactory.getInstance().getImage("ico"+Integer.toString(i)+".gif");
         }
-        try{tracker.waitForAll();}catch(Exception e){System.out.println(e.toString());}
 
         //creiamoci i menu
         m_Mres=new PopupMenu();
