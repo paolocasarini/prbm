@@ -31,6 +31,7 @@ import org.casarini.prbm.gui.component.IconViewer;
 import org.casarini.prbm.model.Resource;
 import org.casarini.prbm.model.TimeStamp;
 import org.casarini.prbm.util.DiskUtil;
+import org.casarini.prbm.util.IconFactory;
 
 
 public class DialogEditPaesaggio extends Dialog
@@ -324,14 +325,10 @@ public class DialogEditPaesaggio extends Dialog
 		nomiImg.addElement((Object) new String("paesaggi/traliccio_corrente.gif"));
 
 		
-        Toolkit tkit=getToolkit();
-        MediaTracker tracker=new MediaTracker(this);
         for(int i=0;i<nomiImg.size();i++)
         {
-            imgIcone.addElement((Object)tkit.getImage((String)nomiImg.elementAt(i)));
-            tracker.addImage((Image)imgIcone.elementAt(i),i);
+            imgIcone.addElement(IconFactory.getInstance().getImage((String)nomiImg.elementAt(i)));
         }
-        try{tracker.waitForAll();}catch(Exception e){System.out.println(e.toString());}
         
         
 		//{{REGISTER_LISTENERS

@@ -30,6 +30,7 @@ import org.casarini.prbm.model.Albero;
 import org.casarini.prbm.model.Resource;
 import org.casarini.prbm.model.TimeStamp;
 import org.casarini.prbm.util.DiskUtil;
+import org.casarini.prbm.util.IconFactory;
 
 
 public class DialogEditAlbero extends Dialog
@@ -60,7 +61,7 @@ public class DialogEditAlbero extends Dialog
 		this.setTitle("Modifica scheda Albero/Arbusto");
 		scheda=(Albero)rs.scheda;
 		setBackground(Color.lightGray);
-		icone=(new File(icoDir)).list();
+		icone = (new File(DialogEditAlbero.class.getResource("../../resources/" + icoDir).getFile())).list();
 		if(scheda.icona.length()!=0)
 		{
 			boolean done=false;
@@ -80,11 +81,7 @@ public class DialogEditAlbero extends Dialog
 		fontN=new Font("Dialog", Font.PLAIN, 12);
 		fontB=new Font("Dialog", Font.BOLD, 12);
 
-        Toolkit tkit=getToolkit();
-        icona=tkit.getImage(scheda.icona);
-        MediaTracker tracker=new MediaTracker(this);
-        tracker.addImage(icona,0);
-        try{tracker.waitForID(0);}catch(Exception e){System.out.println(e.toString());}
+        icona = IconFactory.getInstance().getImage(scheda.icona);
 
 		setLayout(new BorderLayout(5,5));
 		setVisible(false);
@@ -507,11 +504,7 @@ public class DialogEditAlbero extends Dialog
 		iIcona--;
 		scheda.icona=icoDir+icone[iIcona];
 
-		Toolkit tkit=getToolkit();
-        icona=tkit.getImage(scheda.icona);
-        MediaTracker tracker=new MediaTracker(this);
-        tracker.addImage(icona,0);
-        try{tracker.waitForID(0);}catch(Exception e){System.out.println(e.toString());}
+        icona = IconFactory.getInstance().getImage(scheda.icona);
   		cIcona.setImage(icona);
 		cIcona.repaint();
 
@@ -523,11 +516,7 @@ public class DialogEditAlbero extends Dialog
 		iIcona++;
 		scheda.icona=icoDir+icone[iIcona];
 
-		Toolkit tkit=getToolkit();
-        icona=tkit.getImage(scheda.icona);
-        MediaTracker tracker=new MediaTracker(this);
-        tracker.addImage(icona,0);
-        try{tracker.waitForID(0);}catch(Exception e){System.out.println(e.toString());}
+        icona = IconFactory.getInstance().getImage(scheda.icona);
   		cIcona.setImage(icona);
 		cIcona.repaint();
 
