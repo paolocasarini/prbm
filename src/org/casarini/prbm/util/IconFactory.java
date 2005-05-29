@@ -32,7 +32,7 @@ public class IconFactory {
     /**
      * Il package (direcotry) dove vengono messe le risorse (icone, etc.).
      */
-    public static final String RESOURCE_DIR = "../resources/";
+    public static final String RESOURCE_DIR = "/org/casarini/prbm/resources/";
 
     /**
      * L'unica istanza di UsciIconFactory.
@@ -76,6 +76,8 @@ public class IconFactory {
                 if (imageURL != null) {
                     image = Toolkit.getDefaultToolkit().createImage(imageURL);
                     images.put(imageIdentifier, image);
+                } else {
+                	System.out.println(RESOURCE_DIR + imageIdentifier);
                 }
             } else {
                 image = (Image)imageAsObject;

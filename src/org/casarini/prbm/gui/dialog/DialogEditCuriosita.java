@@ -31,6 +31,7 @@ import org.casarini.prbm.model.Resource;
 import org.casarini.prbm.model.TimeStamp;
 import org.casarini.prbm.util.DiskUtil;
 import org.casarini.prbm.util.IconFactory;
+import org.casarini.prbm.util.XMLDirectoryList;
 
 
 public class DialogEditCuriosita extends Dialog
@@ -60,7 +61,8 @@ public class DialogEditCuriosita extends Dialog
 		this.setTitle("Modifica scheda Curiosità/Osservazione");
 		scheda=(Curiosita)rs.scheda;
         setBackground(Color.lightGray);
-		icone = (new File(DialogEditCuriosita.class.getResource("../../resources/" + icoDir).getFile())).list();
+		XMLDirectoryList dl = new XMLDirectoryList(IconFactory.RESOURCE_DIR + icoDir);
+		icone = dl.list();
 		if(scheda.icona.length()!=0)
 		{
 			boolean done=false;
