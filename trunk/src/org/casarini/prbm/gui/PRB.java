@@ -386,6 +386,11 @@ public class PRB extends Frame implements WindowListener, ActionListener,
         if (repositoryPath == null) {
             selectedSaveAsRepository();
         } else {
+            // sistema l'estensione se mancante
+            if (!repositoryPath.substring(repositoryPath.length() - 5).equalsIgnoreCase(".prbr")) {
+            	repositoryPath = repositoryPath + ".prbr";
+            }
+            
             try {
                 // recupera il repository e lo salva su disco
                 PRBRepositoryData dr = this.repositoryDialog.c_repository.dr;
