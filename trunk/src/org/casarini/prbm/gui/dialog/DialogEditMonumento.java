@@ -608,6 +608,8 @@ public class DialogEditMonumento extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.immagine = "";
 			}
 			if(tfVideo.getText().length()!=0)
 			{
@@ -620,6 +622,8 @@ public class DialogEditMonumento extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.video = "";
 			}
 	
     		setVisible(false);

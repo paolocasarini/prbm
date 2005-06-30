@@ -551,6 +551,8 @@ public class DialogEditPaesaggio extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				rs.scheda.immagine = "";
 			}
 			if(tfVideo.getText().length()!=0)
 			{
@@ -563,6 +565,8 @@ public class DialogEditPaesaggio extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				rs.scheda.video = "";
 			}
     		//{{CONNECTION
     		// Hide the Dialog
