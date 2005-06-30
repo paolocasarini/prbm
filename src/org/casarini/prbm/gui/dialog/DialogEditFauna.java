@@ -677,6 +677,8 @@ public class DialogEditFauna extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.immagine = "";
 			}
 			if(tfImgEscrementi.getText().length()!=0)
 			{
@@ -689,6 +691,8 @@ public class DialogEditFauna extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.imgescrementi = "";
 			}
 			if(tfImgTracce.getText().length()!=0)
 			{
@@ -701,6 +705,8 @@ public class DialogEditFauna extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.imgtracce = "";
 			}
 			if(tfAudio.getText().length()!=0)
 			{
@@ -713,6 +719,8 @@ public class DialogEditFauna extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.audio = "";
 			}
 			if(tfVideo.getText().length()!=0)
 			{
@@ -725,6 +733,8 @@ public class DialogEditFauna extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.video = "";
 			}
 	    
     		setVisible(false);

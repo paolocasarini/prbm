@@ -560,6 +560,8 @@ public class DialogEditFatto extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.immagine = "";
 			}
 			if(tfAudio.getText().length()!=0)
 			{
@@ -572,6 +574,8 @@ public class DialogEditFatto extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.audio = "";
 			}
 			if(tfVideo.getText().length()!=0)
 			{
@@ -584,6 +588,8 @@ public class DialogEditFatto extends Dialog
 					d.display();
 		            return;
 				}
+			} else {
+				scheda.video = "";
 			}
 
 			setVisible(false);
