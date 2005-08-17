@@ -61,6 +61,10 @@
       basedir="${package}"
       update="true"
     />
+    <tar destfile="${ant.project.name}-${release}.tar.gz"
+      basedir="${package}"
+      compression="gzip"
+    />
     <delete dir="${package}"/>
   </target>
 
@@ -69,6 +73,7 @@
     <delete dir="${dist}"/>
     <delete dir="${package}"/>
     <delete file="${ant.project.name}-${release}.zip"/>
+    <delete file="${ant.project.name}-${release}.tar.gz"/>
   </target>
 
 </project>
