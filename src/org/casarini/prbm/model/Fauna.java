@@ -20,11 +20,15 @@
 package org.casarini.prbm.model;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Vector;
 
 import org.casarini.prbm.parser.PRBMParser;
+import org.casarini.prbm.parser.PRBMParserImgDimensionNode;
 import org.casarini.prbm.parser.PRBMParserNode;
 import org.casarini.prbm.util.DiskUtil;
+import org.casarini.prbm.util.ImageInfo;
 
 
 public class Fauna extends Scheda implements java.io.Serializable
@@ -125,6 +129,17 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
             nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf("\\")+1), 0, null));
+        	ImageInfo ii = new ImageInfo();
+        	try {
+        		ii.setInput(new FileInputStream(immagine));
+				if (!ii.check()) {
+					System.err.println("Not a supported image file format.");
+				} else {
+					nodes.addElement(new PRBMParserImgDimensionNode('C', "scheda.immagine.dimensioni", null, 0, null, ii.getWidth(), ii.getHeight()));
+				}
+        	} catch(FileNotFoundException fnfe) {
+				System.err.println("File not found: " + immagine);
+        	}
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 0, null));
@@ -132,6 +147,17 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.imgtracce", null, 1, null));
             nodes.addElement(new PRBMParserNode('S',"scheda.imgtracce.src", imgtracce.substring(imgtracce.lastIndexOf("\\")+1), 0, null));
+        	ImageInfo ii = new ImageInfo();
+        	try {
+        		ii.setInput(new FileInputStream(imgtracce));
+				if (!ii.check()) {
+					System.err.println("Not a supported image file format.");
+				} else {
+					nodes.addElement(new PRBMParserImgDimensionNode('C', "scheda.imgtracce.dimensioni", null, 0, null, ii.getWidth(), ii.getHeight()));
+				}
+        	} catch(FileNotFoundException fnfe) {
+				System.err.println("File not found: " + imgtracce);
+        	}
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.imgtracce", null, 0, null));
@@ -139,6 +165,17 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.imgescrementi", null, 1, null));
             nodes.addElement(new PRBMParserNode('S',"scheda.imgescrementi.src", imgescrementi.substring(imgescrementi.lastIndexOf("\\")+1), 0, null));
+        	ImageInfo ii = new ImageInfo();
+        	try {
+        		ii.setInput(new FileInputStream(imgescrementi));
+				if (!ii.check()) {
+					System.err.println("Not a supported image file format.");
+				} else {
+					nodes.addElement(new PRBMParserImgDimensionNode('C', "scheda.imgescrementi.dimensioni", null, 0, null, ii.getWidth(), ii.getHeight()));
+				}
+        	} catch(FileNotFoundException fnfe) {
+				System.err.println("File not found: " + imgescrementi);
+        	}
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.imgescrementi", null, 0, null));

@@ -22,8 +22,10 @@ import java.io.*;
 import java.util.Vector;
 
 import org.casarini.prbm.parser.PRBMParser;
+import org.casarini.prbm.parser.PRBMParserImgDimensionNode;
 import org.casarini.prbm.parser.PRBMParserNode;
 import org.casarini.prbm.util.DiskUtil;
+import org.casarini.prbm.util.ImageInfo;
 
 
 public class Monumento extends Scheda implements java.io.Serializable
@@ -113,6 +115,17 @@ public class Monumento extends Scheda implements java.io.Serializable
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
             nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf("\\")+1), 0, null));
+        	ImageInfo ii = new ImageInfo();
+        	try {
+        		ii.setInput(new FileInputStream(immagine));
+				if (!ii.check()) {
+					System.err.println("Not a supported image file format.");
+				} else {
+					nodes.addElement(new PRBMParserImgDimensionNode('C', "scheda.immagine.dimensioni", null, 0, null, ii.getWidth(), ii.getHeight()));
+				}
+        	} catch(FileNotFoundException fnfe) {
+				System.err.println("File not found: " + immagine);
+        	}
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 0, null));

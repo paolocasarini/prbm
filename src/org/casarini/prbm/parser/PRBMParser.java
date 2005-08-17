@@ -145,6 +145,51 @@ public class PRBMParser
                 System.out.println(ioe.toString());
             }
         }
+        else if (!ifjump && cmd.equalsIgnoreCase("calc_dim"))
+        {
+            try {
+                int param_start = arg.indexOf('(', 0);
+                if (param_start == -1) {
+                	throw new IOException("No parameters found for calc_dim.");
+                }
+                int param_stop = arg.indexOf(')', param_start);
+                if (param_stop == -1) {
+                	throw new IOException("No parameters found for calc_dim.");
+                }
+                StringTokenizer st = new StringTokenizer(arg.substring(param_start + 1, param_stop), ",");
+                if (st.countTokens() != 2) {
+                	throw new IOException("The parameters for calc_dim must be two");
+                }
+                String specified_width = st.nextToken();
+                int max_width = -1;
+                if (!specified_width.trim().equals("*")) {
+                	try {
+                		max_width = Integer.parseInt(specified_width.trim());
+                	} catch(NumberFormatException nfe) {
+                		throw new IOException("The width specified should be a number o the * character");
+                	}
+                }
+                String specified_height = st.nextToken();
+                int max_height = -1;
+                if (!specified_height.trim().equals("*")) {
+                	try {
+                		max_height = Integer.parseInt(specified_height.trim());
+                	} catch(NumberFormatException nfe) {
+                		throw new IOException("The height specified should be a number o the * character");
+                	}
+                }
+                
+                String toWrite = getCalcDim(arg.substring(0, param_start), max_width, max_height);
+                if(toWrite != null)
+                    fd_out.write(toWrite.getBytes());
+                else
+                    System.out.println("node not found: "+cmd+" "+arg);
+            }
+            catch (IOException ioe)
+            {
+                System.out.println(ioe.toString());
+            }
+        }
         else if (!ifjump && cmd.equalsIgnoreCase("repeat"))
         {
             try
@@ -276,6 +321,20 @@ public class PRBMParser
         return ret;
     }
 
+    String getCalcDim(String arg, int height, int width)
+    {
+        String ret = null;
+
+        for (int i=0; i<nodes.size() && ret == null; i++)
+        {
+            PRBMParserNode node = (PRBMParserNode) nodes.elementAt(i);
+            if(node.getLevel() == 0 && node.getArg().equals(arg) )
+                ret = ((PRBMParserImgDimensionNode)node).getValue(height, width);
+        }
+
+        return ret;
+    }
+    
     String getSubstR(String arg, Vector tree, int counter)
     {
         String ret = null;
