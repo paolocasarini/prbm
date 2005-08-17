@@ -7,7 +7,9 @@
   <property name="src" location="src"/>
   <property name="build" location="build"/>
   <property name="dist"  location="dist"/>
+  <property name="package"  location="package"/>
   <property name="resources" location="resources"/>
+  <property name="release" value="0.6.7"/>
 
   <target name="prepare" description="prepara l'ambiente di compilazione">
     <tstamp/>
@@ -38,10 +40,35 @@
       </manifest>
     </jar>
   </target>
+  
+  <target name="package" depends="compile">
+    <mkdir dir="${package}"/>
+    <copy todir="${package}">
+      <fileset dir="${resources}"/>
+    </copy>
+    <copy todir="${package}/paesaggi">
+      <fileset dir="${src}/org/casarini/prbm/resources/paesaggi"/>
+    </copy>
+
+    <jar destfile="${package}/${ant.project.name}.jar">
+      <fileset dir="${build}"/>
+      <manifest>
+        <attribute name="Main-Class" value="org.casarini.prbm.gui.PRB"/>
+      </manifest>
+    </jar>
+    
+    <zip destfile="${ant.project.name}-${release}.zip"
+      basedir="${package}"
+      update="true"
+    />
+    <delete dir="${package}"/>
+  </target>
 
   <target name="clean" description="ripulisce la directory di compilazione e distribuzione" >
     <delete dir="${build}"/>
     <delete dir="${dist}"/>
+    <delete dir="${package}"/>
+    <delete file="${ant.project.name}-${release}.zip"/>
   </target>
 
 </project>
