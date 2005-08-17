@@ -35,17 +35,17 @@
     <!-- Inizio colonna di sinistra -->
     <TD WIDTH="30%" ALIGN="CENTER" VALIGN="TOP" BGCOLOR="#FFCC66" class="tabella"> 
       <?PRBM if scheda.immagine?>
-      <P><IMG SRC="<?PRBM subst scheda.immagine.src?>" ALT="<?PRBM subst scheda.didascalia?>" BORDER="0" WIDTH="240" HEIGHT="192"><BR>
+      <P><IMG SRC="<?PRBM subst scheda.immagine.src?>" ALT="<?PRBM subst scheda.didascalia?>" BORDER="0" <?PRBM calc_dim scheda.immagine.dimensioni(240, 192)?>><BR>
         <FONT SIZE="-1">
         <?PRBM subst scheda.didascalia?>
         </FONT></P>
       <?PRBM endif scheda.immagine?>
       <?PRBM if scheda.imgtracce?>
-      <P><IMG SRC="<?PRBM subst scheda.imgtracce.src?>" BORDER=0 WIDTH=240 HEIGHT=192><BR>
+      <P><IMG SRC="<?PRBM subst scheda.imgtracce.src?>" BORDER=0 <?PRBM calc_dim scheda.imgtracce.dimensioni(240, 192)?>><BR>
         <FONT SIZE=-1>Descrizione di tracce e/o segni di presenza</FONT></P>
       <?PRBM endif scheda.imgtracce?>
       <?PRBM if scheda.imgescrementi?>
-      <P><IMG SRC="<?PRBM subst scheda.imgtracce.src?>" BORDER=0 WIDTH=240 HEIGHT=192><BR>
+      <P><IMG SRC="<?PRBM subst scheda.imgescrementi.src?>" BORDER=0 <?PRBM calc_dim scheda.imgescrementi.dimensioni(240, 192)?>><BR>
         <FONT SIZE=-1>Descrizione Escrementi</FONT></P>
       <?PRBM endif scheda.imgescrementi?>
       <center>

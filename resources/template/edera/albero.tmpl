@@ -34,7 +34,7 @@
     <!-- Inizio colonna di sinistra -->
     <TD WIDTH="30%" ALIGN="CENTER" VALIGN="TOP" BGCOLOR="#999900" class="tabella"> 
       <?PRBM if scheda.immagine?>
-      <P><IMG SRC="<?PRBM subst scheda.immagine.src?>" ALT="<?PRBM subst scheda.didascalia?>" BORDER="0" WIDTH="240" HEIGHT="192"><BR>
+      <P><IMG SRC="<?PRBM subst scheda.immagine.src?>" ALT="<?PRBM subst scheda.didascalia?>" BORDER="0" <?PRBM calc_dim scheda.immagine.dimensioni(240, 192)?>><BR>
         <FONT SIZE="-1">
         <?PRBM subst scheda.didascalia?>
         </FONT></P>
