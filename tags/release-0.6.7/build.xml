@@ -1,0 +1,79 @@
+<project name="prbm" default="compile" basedir=".">
+  <description>
+    Percorso Rettificato Belga Multimediale
+  </description>
+
+  <!-- imposta le property globali -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="package"  location="package"/>
+  <property name="resources" location="resources"/>
+  <property name="release" value="0.6.7"/>
+
+  <target name="prepare" description="prepara l'ambiente di compilazione">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+    <mkdir dir="${build}/org/casarini/prbm/resources"/>
+    <copy todir="${build}/org/casarini/prbm/resources">
+      <fileset dir="${src}/org/casarini/prbm/resources"/>
+    </copy>
+  </target>
+
+  <target name="compile" depends="prepare" description="compila il codice sorgente" >
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="dist" depends="compile" description="genera la distribuzione" >
+    <mkdir dir="${dist}"/>
+    <copy todir="${dist}">
+      <fileset dir="${resources}"/>
+    </copy>
+    <copy todir="${dist}/paesaggi">
+      <fileset dir="${src}/org/casarini/prbm/resources/paesaggi"/>
+    </copy>
+
+    <jar destfile="${dist}/${ant.project.name}-${DSTAMP}.jar">
+      <fileset dir="${build}"/>
+      <manifest>
+        <attribute name="Main-Class" value="org.casarini.prbm.gui.PRB"/>
+      </manifest>
+    </jar>
+  </target>
+  
+  <target name="package" depends="compile">
+    <mkdir dir="${package}"/>
+    <copy todir="${package}">
+      <fileset dir="${resources}"/>
+    </copy>
+    <copy todir="${package}/paesaggi">
+      <fileset dir="${src}/org/casarini/prbm/resources/paesaggi"/>
+    </copy>
+
+    <jar destfile="${package}/${ant.project.name}.jar">
+      <fileset dir="${build}"/>
+      <manifest>
+        <attribute name="Main-Class" value="org.casarini.prbm.gui.PRB"/>
+      </manifest>
+    </jar>
+    
+    <zip destfile="${ant.project.name}-${release}.zip"
+      basedir="${package}"
+      update="true"
+    />
+    <tar destfile="${ant.project.name}-${release}.tar.gz"
+      basedir="${package}"
+      compression="gzip"
+    />
+    <delete dir="${package}"/>
+  </target>
+
+  <target name="clean" description="ripulisce la directory di compilazione e distribuzione" >
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+    <delete dir="${package}"/>
+    <delete file="${ant.project.name}-${release}.zip"/>
+    <delete file="${ant.project.name}-${release}.tar.gz"/>
+  </target>
+
+</project>
