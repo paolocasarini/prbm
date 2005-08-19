@@ -48,21 +48,21 @@ public class PRBMParserImgDimensionNode extends PRBMParserNode {
     	this.width = width;
     }
     
-    public String getValue(int width, int height) {
+    public String getValue(int max_width, int max_height) {
     	int vHeight;
     	int vWidth;
     	
-    	if (width < this.width) {
-    		vWidth = width;
-    		vHeight = (int)(height * ((double)width / this.width));
+    	if (max_width < this.width) {
+    		vWidth = max_width;
+    		vHeight = (int)(this.height * ((double)max_width / this.width));
     	} else {
     		vWidth = this.width;
     		vHeight = this.height;
     	}
     	
-    	if (height < vHeight) {
-    		vHeight = height;
-    		vWidth = (int)(width * ((double)height / this.height));
+    	if (max_height < vHeight) {
+    		vHeight = max_height;
+    		vWidth = (int)(this.width * ((double)max_height / this.height));
     	}
     	
     	return "HEIGHT=\"" + vHeight + "\" WIDTH=\"" + vWidth + "\"";
