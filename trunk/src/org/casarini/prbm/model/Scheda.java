@@ -80,15 +80,6 @@ public class Scheda implements Serializable
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
             nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf("\\")+1), 0, null));
-        }
-        else
-            nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 0, null));
-        if (video == null)
-            video=new String("");
-        if(video.length()>0)
-        {
-            nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf("\\")+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(immagine));
@@ -100,6 +91,15 @@ public class Scheda implements Serializable
         	} catch(FileNotFoundException fnfe) {
 				System.err.println("File not found: " + immagine);
         	}
+        }
+        else
+            nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 0, null));
+        if (video == null)
+            video=new String("");
+        if(video.length()>0)
+        {
+            nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf("\\")+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 0, null));
