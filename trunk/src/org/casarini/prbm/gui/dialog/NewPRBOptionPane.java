@@ -25,7 +25,10 @@ import java.awt.event.*;
 import org.casarini.prbm.gui.PRB;
 
 public class NewPRBOptionPane extends Dialog implements ActionListener {
-    /**
+
+	private static final long serialVersionUID = -4307978254868442803L;
+
+	/**
      * Frame principale rispetto a cui essere modale
      */
     PRB parent;

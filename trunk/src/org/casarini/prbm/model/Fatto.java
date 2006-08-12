@@ -33,6 +33,8 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Fatto extends Scheda implements java.io.Serializable
 {
+	private static final long serialVersionUID = -1230839803436756387L;
+
 	public String descrizione;
 	public String dove;
 	public String persone;

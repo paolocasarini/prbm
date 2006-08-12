@@ -33,7 +33,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Intervista extends Scheda implements java.io.Serializable
 {
-    public String nominativo;
+	private static final long serialVersionUID = 5451614891176456876L;
+
+	public String nominativo;
 	public int eta;
 	public String professione;
 	public String statoCivile;

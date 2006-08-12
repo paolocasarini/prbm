@@ -26,7 +26,7 @@ public class DiskUtil
     public static void copyFile(String s,String d)
     {
         byte[] buffer = new byte[4096];
-        int letti, scritti;
+        int letti;
         FileInputStream fs;
         FileOutputStream fd;
         

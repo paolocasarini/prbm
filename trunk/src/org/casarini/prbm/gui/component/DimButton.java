@@ -23,7 +23,9 @@ import java.awt.Dimension;
 
 public class DimButton extends Button
 {
-    Dimension d;
+	private static final long serialVersionUID = 4758108062894728467L;
+
+	Dimension d;
     public DimButton(int w,int h)
     {
         super();

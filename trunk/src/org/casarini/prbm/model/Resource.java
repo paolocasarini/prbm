@@ -27,7 +27,9 @@ import org.casarini.prbm.gui.util.YellowFilter;
 
 public class Resource implements java.io.Serializable
 {
-    public int type;
+	private static final long serialVersionUID = 7772083251620634064L;
+
+	public int type;
     public String title;
     public transient Image n, y;
     public Scheda scheda;

@@ -30,6 +30,8 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Monumento extends Scheda implements java.io.Serializable
 {
+	private static final long serialVersionUID = 4555746704598415394L;
+
 	public String denominazione;
 	public String descrizione;
 	public String comune;

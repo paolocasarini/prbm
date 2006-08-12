@@ -35,7 +35,10 @@ import org.casarini.prbm.gui.PRB;
  * @author Paolo Casarini <paolo@casarini.org>
  */
 public class LoadRepositoryOptionPane extends Dialog implements ActionListener {
-    /**
+
+	private static final long serialVersionUID = -28046351008137682L;
+
+	/**
      * Frame principale rispetto a cui essere modale
      */
     PRB parent;

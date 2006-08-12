@@ -33,7 +33,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Fiore extends Scheda implements java.io.Serializable
 {
-    public String nomeComune;
+	private static final long serialVersionUID = 3738616291117333148L;
+
+	public String nomeComune;
     public String nomeScientifico;
     public String desFiore;
     public int nPetali;

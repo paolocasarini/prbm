@@ -25,7 +25,9 @@ import org.casarini.prbm.gui.component.Tabella;
 
 public class DataTable implements java.io.Serializable
 {
-    public Vector data;
+	private static final long serialVersionUID = -8114613222798159928L;
+
+	public Vector data;
 
     public DataTable()
     {

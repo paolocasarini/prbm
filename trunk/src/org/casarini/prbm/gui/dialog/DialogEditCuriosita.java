@@ -36,7 +36,9 @@ import org.casarini.prbm.util.XMLDirectoryList;
 
 public class DialogEditCuriosita extends Dialog
 {
-    Panel panel,panel1,panel2;
+	private static final long serialVersionUID = -7646477755582334675L;
+
+	Panel panel,panel1,panel2;
     DimButton okbutton,cancelbutton,bPrev,bSucc,browseI,browseA,browseV,iPrev,iSucc;
     CardLayout lay;
     Font fontN,fontB;
@@ -86,7 +88,7 @@ public class DialogEditCuriosita extends Dialog
 
 		setLayout(new BorderLayout(5,5));
 		setVisible(false);
-		setSize(insets().left + insets().right + 500,insets().top + insets().bottom + 425);
+		setSize(getInsets().left + getInsets().right + 500, getInsets().top + getInsets().bottom + 425);
 		Label label1 = new Label("Proprietà scheda Curiosità/Osservazione",Label.CENTER);
 		label1.setFont(new Font("Dialog", Font.BOLD, 14));
 		add("North",label1);
@@ -375,10 +377,10 @@ public class DialogEditCuriosita extends Dialog
 
     public void show()
 	{
-		Rectangle bounds = getParent().bounds();
-		Rectangle abounds = bounds();
+		Rectangle bounds = getParent().getBounds();
+		Rectangle abounds = getBounds();
 
-		move(bounds.x + (bounds.width - abounds.width)/ 2,
+		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
 			 bounds.y + (bounds.height - abounds.height)/2);
 
 		super.show();

@@ -27,7 +27,9 @@ import org.casarini.prbm.model.Passo;
 
 public class DialogEditStep extends Dialog
 {
-    Passo p;
+	private static final long serialVersionUID = 6494229960823756833L;
+
+	Passo p;
     PRB parent;
 
 	public DialogEditStep(PRB parent, Passo p)
@@ -45,32 +47,32 @@ public class DialogEditStep extends Dialog
 		//{{INIT_CONTROLS
 		setLayout(null);
 		setVisible(false);
-		setSize(insets().left + insets().right + 191,insets().top + insets().bottom + 135);
+		setSize(getInsets().left + getInsets().right + 191,getInsets().top + getInsets().bottom + 135);
 		val_azimut = new CTextField(CTextField.CTF_NUM,3);
-		val_azimut.setBounds(insets().left + 114,insets().top + 6,60,18);
+		val_azimut.setBounds(getInsets().left + 114,getInsets().top + 6,60,18);
 		add(val_azimut);
 		label1 = new java.awt.Label("Azimut :",Label.RIGHT);
-		label1.setBounds(insets().left + 0,insets().top + 12,108,12);
+		label1.setBounds(getInsets().left + 0,getInsets().top + 12,108,12);
 		label1.setFont(new Font("Dialog", Font.PLAIN, 12));
 		add(label1);
 		label2 = new java.awt.Label("Metri percorsi :",Label.RIGHT);
-		label2.setBounds(insets().left + 0,insets().top + 36,108,12);
+		label2.setBounds(getInsets().left + 0,getInsets().top + 36,108,12);
 		label2.setFont(new Font("Dialog", Font.PLAIN, 12));
 		add(label2);
 		label3 = new java.awt.Label("minuti impiegati :",Label.RIGHT);
-		label3.setBounds(insets().left + 0,insets().top + 60,108,12);
+		label3.setBounds(getInsets().left + 0,getInsets().top + 60,108,12);
 		label3.setFont(new Font("Dialog", Font.PLAIN, 12));
 		add(label3);
 		val_spazio = new CTextField(CTextField.CTF_NUM,6);
-		val_spazio.setBounds(insets().left + 114,insets().top + 30,60,18);
+		val_spazio.setBounds(getInsets().left + 114,getInsets().top + 30,60,18);
 		add(val_spazio);
 		val_tempo = new CTextField(CTextField.CTF_NUM,5);
-		val_tempo.setBounds(insets().left + 114,insets().top + 54,60,18);
+		val_tempo.setBounds(getInsets().left + 114,getInsets().top + 54,60,18);
 		add(val_tempo);
 		okbutton = new java.awt.Button();
 		okbutton.setActionCommand("button");
 		okbutton.setLabel("OK");
-		okbutton.setBounds(insets().left + 22,insets().top + 96,60,24);
+		okbutton.setBounds(getInsets().left + 22,getInsets().top + 96,60,24);
 		okbutton.setFont(new Font("Dialog", Font.BOLD, 12));
 		okbutton.setBackground(new Color(12632256));
 		add(okbutton);
@@ -78,7 +80,7 @@ public class DialogEditStep extends Dialog
 		cancelbutton = new java.awt.Button();
 		cancelbutton.setActionCommand("button");
 		cancelbutton.setLabel("Annulla");
-		cancelbutton.setBounds(insets().left + 106,insets().top + 96,62,24);
+		cancelbutton.setBounds(getInsets().left + 106,getInsets().top + 96,62,24);
 		cancelbutton.setFont(new Font("Dialog", Font.BOLD, 12));
 		cancelbutton.setBackground(new Color(12632256));
 		add(cancelbutton);
@@ -112,13 +114,13 @@ public class DialogEditStep extends Dialog
 		if (fComponentsAdjusted)
 			return;
 
-		// Adjust components according to the insets
-		setSize(insets().left + insets().right + d.width, insets().top + insets().bottom + d.height);
+		// Adjust components according to the getInsets
+		setSize(getInsets().left + getInsets().right + d.width, getInsets().top + getInsets().bottom + d.height);
 		Component components[] = getComponents();
 		for (int i = 0; i < components.length; i++)
 		{
 			Point p = components[i].getLocation();
-			p.translate(insets().left, insets().top);
+			p.translate(getInsets().left, getInsets().top);
 			components[i].setLocation(p);
 		}
 		fComponentsAdjusted = true;
@@ -136,10 +138,10 @@ public class DialogEditStep extends Dialog
 
 	public void show()
 	{
-		Rectangle bounds = getParent().bounds();
-		Rectangle abounds = bounds();
+		Rectangle bounds = getParent().getBounds();
+		Rectangle abounds = getBounds();
 
-		move(bounds.x + (bounds.width - abounds.width)/ 2,
+		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
 			 bounds.y + (bounds.height - abounds.height)/2);
 
 		super.show();
@@ -212,10 +214,9 @@ public class DialogEditStep extends Dialog
 	void okbutton_Action(java.awt.event.ActionEvent event)
 	{
 		// to do: code goes here.
-		int a,m,t;
+		int a,m;
 		a=Integer.parseInt(val_azimut.getText());
 		m=Integer.parseInt(val_spazio.getText());
-		t=Integer.parseInt(val_tempo.getText());
 		if(a<0||a>360)
 		{
 		    AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","L'angolo deve essere tra 0 e 360");

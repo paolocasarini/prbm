@@ -36,7 +36,9 @@ import org.casarini.prbm.util.XMLDirectoryList;
 
 public class DialogEditMeteo extends Dialog
 {
-    Panel panel,panel1,panel2,panel3,panel4;
+	private static final long serialVersionUID = 5927245619601661727L;
+
+	Panel panel,panel1,panel2,panel3,panel4;
     DimButton okbutton,cancelbutton,bPrev,bSucc,browse,browseV,browseA,iPrev,iSucc;
     CardLayout lay;
     Font fontN,fontB;
@@ -89,7 +91,7 @@ public class DialogEditMeteo extends Dialog
 
 		setLayout(new BorderLayout(5,5));
 		setVisible(false);
-		setSize(insets().left + insets().right + 500,insets().top + insets().bottom + 425);
+		setSize(getInsets().left + getInsets().right + 500, getInsets().top + getInsets().bottom + 425);
 		Label label1 = new Label("Proprietà scheda Meteo",Label.CENTER);
 		label1.setFont(new Font("Dialog", Font.BOLD, 14));
 		add("North",label1);
@@ -597,10 +599,10 @@ public class DialogEditMeteo extends Dialog
 
     public void show()
 	{
-		Rectangle bounds = getParent().bounds();
-		Rectangle abounds = bounds();
+		Rectangle bounds = getParent().getBounds();
+		Rectangle abounds = getBounds();
 
-		move(bounds.x + (bounds.width - abounds.width)/ 2,
+		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
 			 bounds.y + (bounds.height - abounds.height)/2);
 
 		super.show();

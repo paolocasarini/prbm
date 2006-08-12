@@ -24,8 +24,9 @@ import java.io.File;
 
 public class TemplateBox extends Dialog implements ActionListener
 {
-    private Frame parent;
-    private Button yesButton;
+	private static final long serialVersionUID = 3407355198908995138L;
+
+	private Button yesButton;
     private Button noButton;
     private Choice template;
     private String result;
@@ -35,7 +36,6 @@ public class TemplateBox extends Dialog implements ActionListener
 	    super(parent, "Scelta del template...", true);
 	    setResizable(false);
 
-        this.parent=parent;
         result=new String("");
 
     	setLayout(null);

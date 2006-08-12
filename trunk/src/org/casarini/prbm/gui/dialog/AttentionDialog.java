@@ -23,6 +23,8 @@ import java.awt.event.*;
 
 public class AttentionDialog extends Dialog implements ActionListener
 {
+	private static final long serialVersionUID = 6710363066677840783L;
+
 	Label label1;
 	Button okButton;
 
@@ -47,11 +49,11 @@ public class AttentionDialog extends Dialog implements ActionListener
 		add(p,"South");
 		this.pack();
 
-		Rectangle bounds = getParent().bounds();
-		Rectangle abounds = bounds();
+		Rectangle bounds = getParent().getBounds();
+		Rectangle abounds = getBounds();
 
-		move(bounds.x + (bounds.width - abounds.width)/ 2,
-			 bounds.y + (bounds.height - abounds.height)/2);
+		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
+			        bounds.y + (bounds.height - abounds.height)/2);
 
 		super.setVisible(true);
 	}

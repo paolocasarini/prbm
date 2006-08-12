@@ -33,7 +33,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Curiosita extends Scheda implements java.io.Serializable
 {
-    public String descrizione;
+	private static final long serialVersionUID = 4013684002977595023L;
+
+	public String descrizione;
     public String perche;
     public String impressioni;
     public String audio;

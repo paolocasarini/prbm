@@ -29,7 +29,9 @@ import org.casarini.prbm.gui.util.YellowFilter;
 
 public class PRBRepositoryData implements java.io.Serializable
 {
-    public Vector resources;
+	private static final long serialVersionUID = 5157335478189500370L;
+
+	public Vector resources;
 
     public PRBRepositoryData()
     {

@@ -31,7 +31,9 @@ import org.casarini.prbm.model.TimeStamp;
 
 public class SetPRBBox extends Dialog implements ActionListener
 {
-    PRBParam param;
+	private static final long serialVersionUID = -7532552794321704523L;
+
+	PRBParam param;
     PRB parent;
     CTextField tfGiorno,tfMese,tfAnno;
 
@@ -224,7 +226,7 @@ public class SetPRBBox extends Dialog implements ActionListener
                 param.data=t.toString();
             else
             {
-                AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Data errata.");
+                new AttentionDialog(parent,"ATTENZIONE!","Data errata.");
     		    tfGiorno.requestFocus();
 	            return;
 	        }

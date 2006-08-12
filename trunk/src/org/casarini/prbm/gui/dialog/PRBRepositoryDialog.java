@@ -26,9 +26,11 @@ import org.casarini.prbm.gui.PRB;
 import org.casarini.prbm.gui.component.PRBRepository;
 import org.casarini.prbm.gui.component.Tabella;
 
-public class PRBRepositoryDialog extends Dialog implements WindowListener,
-        ActionListener {
-    public PRB parent;
+public class PRBRepositoryDialog extends Dialog implements WindowListener, ActionListener {
+
+	private static final long serialVersionUID = 4838262205624946946L;
+
+	public PRB parent;
 
     public ScrollPane c_scrollpane;
 
