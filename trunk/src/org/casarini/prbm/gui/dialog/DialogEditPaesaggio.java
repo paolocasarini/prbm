@@ -34,7 +34,7 @@ import org.casarini.prbm.util.DiskUtil;
 import org.casarini.prbm.util.IconFactory;
 
 
-public class DialogEditPaesaggio extends Dialog
+public class DialogEditPaesaggio extends DefaultDialogEdit
 {
 	private static final long serialVersionUID = -7163576880980877540L;
 
@@ -409,18 +409,6 @@ public class DialogEditPaesaggio extends Dialog
 
     // Used for addNotify check.
 	boolean fComponentsAdjusted = false;
-
-
-	public void show()
-	{
-		Rectangle bounds = getParent().getBounds();
-		Rectangle abounds = getBounds();
-
-		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
-			 bounds.y + (bounds.height - abounds.height)/2);
-
-		super.show();
-	}
 
 	//{{DECLARE_CONTROLS
 	CTextField tfTitolo;

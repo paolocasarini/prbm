@@ -25,7 +25,7 @@ import org.casarini.prbm.gui.PRB;
 import org.casarini.prbm.gui.component.CTextField;
 import org.casarini.prbm.model.Passo;
 
-public class DialogEditStep extends Dialog
+public class DialogEditStep extends DefaultDialogEdit
 {
 	private static final long serialVersionUID = 6494229960823756833L;
 
@@ -130,23 +130,6 @@ public class DialogEditStep extends Dialog
 	boolean fComponentsAdjusted = false;
 
 
-/*	public Dialog1(Frame parent, String title, boolean modal)
-	{
-		this(parent, modal);
-		setTitle(title);
-	}*/
-
-	public void show()
-	{
-		Rectangle bounds = getParent().getBounds();
-		Rectangle abounds = getBounds();
-
-		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
-			 bounds.y + (bounds.height - abounds.height)/2);
-
-		super.show();
-	}
-	
 	//{{DECLARE_CONTROLS
 	CTextField val_azimut;
 	java.awt.Label label1;

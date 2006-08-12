@@ -34,7 +34,7 @@ import org.casarini.prbm.util.DiskUtil;
 import org.casarini.prbm.util.IconFactory;
 
 
-public class DialogEditAlbero extends Dialog
+public class DialogEditAlbero extends DefaultDialogEdit
 {
 	private static final long serialVersionUID = -8368352638348432184L;
 	
@@ -452,17 +452,6 @@ public class DialogEditAlbero extends Dialog
     // Used for addNotify check.
 	boolean fComponentsAdjusted = false;*/
 
-
-    public void show() {
-		Rectangle bounds = getParent().getBounds();
-		Rectangle abounds = getBounds();
-
-		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
-			 bounds.y + (bounds.height - abounds.height)/2);
-
-		super.show();
-	}
-	
     class SymWindow extends java.awt.event.WindowAdapter
 	{
 		public void windowClosing(java.awt.event.WindowEvent event)

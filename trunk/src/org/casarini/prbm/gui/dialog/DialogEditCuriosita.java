@@ -34,7 +34,7 @@ import org.casarini.prbm.util.IconFactory;
 import org.casarini.prbm.util.XMLDirectoryList;
 
 
-public class DialogEditCuriosita extends Dialog
+public class DialogEditCuriosita extends DefaultDialogEdit
 {
 	private static final long serialVersionUID = -7646477755582334675L;
 
@@ -373,18 +373,6 @@ public class DialogEditCuriosita extends Dialog
 
     // Used for addNotify check.
 	boolean fComponentsAdjusted = false;*/
-
-
-    public void show()
-	{
-		Rectangle bounds = getParent().getBounds();
-		Rectangle abounds = getBounds();
-
-		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
-			 bounds.y + (bounds.height - abounds.height)/2);
-
-		super.show();
-	}
 
     class SymWindow extends java.awt.event.WindowAdapter
 	{

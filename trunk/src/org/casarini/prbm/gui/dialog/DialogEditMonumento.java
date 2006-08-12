@@ -34,7 +34,7 @@ import org.casarini.prbm.util.IconFactory;
 import org.casarini.prbm.util.XMLDirectoryList;
 
 
-public class DialogEditMonumento extends Dialog
+public class DialogEditMonumento extends DefaultDialogEdit
 {
 	private static final long serialVersionUID = -7209445128480485056L;
 
@@ -466,18 +466,7 @@ public class DialogEditMonumento extends Dialog
 	boolean fComponentsAdjusted = false;*/
 
 
-    public void show()
-	{
-		Rectangle bounds = getParent().getBounds();
-		Rectangle abounds = getBounds();
-
-		setLocation(bounds.x + (bounds.width - abounds.width)/ 2,
-			 bounds.y + (bounds.height - abounds.height)/2);
-
-		super.show();
-	}
-	
-    class SymWindow extends java.awt.event.WindowAdapter
+	class SymWindow extends java.awt.event.WindowAdapter
 	{
 		public void windowClosing(java.awt.event.WindowEvent event)
 		{

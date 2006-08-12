@@ -660,52 +660,52 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 						case 0:
 							DialogEditPaesaggio editPae;
 							editPae = new DialogEditPaesaggio(parent,rs);
-							editPae.show();
+							editPae.edit();
 							break;
 						case 1:
 							DialogEditFiore editFiore;
 							editFiore = new DialogEditFiore(parent,rs);
-							editFiore.show();
+							editFiore.edit();
 							break;
 						case 2:
 							DialogEditAlbero editAlbero;
 							editAlbero = new DialogEditAlbero(parent,rs);
-							editAlbero.show();
+							editAlbero.edit();
 							break;
 						case 3:
 							DialogEditFauna editFauna;
 							editFauna = new DialogEditFauna(parent,rs);
-							editFauna.show();
+							editFauna.edit();
 							break;
 						case 4:
 							DialogEditAmbienteNaturale editAmbienteNaturale;
 							editAmbienteNaturale = new DialogEditAmbienteNaturale(parent,rs);
-							editAmbienteNaturale.show();
+							editAmbienteNaturale.edit();
 							break;
 						case 5:
 							DialogEditMeteo editMeteo;
 							editMeteo = new DialogEditMeteo(parent,rs);
-							editMeteo.show();
+							editMeteo.edit();
 							break;
 						case 6:
 							DialogEditMonumento editMonumento;
 							editMonumento = new DialogEditMonumento(parent,rs);
-							editMonumento.show();
+							editMonumento.edit();
 							break;
 						case 7:
 							DialogEditIntervista editIntervista;
 							editIntervista = new DialogEditIntervista(parent,rs);
-							editIntervista.show();
+							editIntervista.edit();
 							break;
 						case 8:
 							DialogEditFatto editFatto;
 							editFatto = new DialogEditFatto(parent,rs);
-							editFatto.show();
+							editFatto.edit();
 							break;
 						case 9:
 							DialogEditCuriosita editCuriosita;
 							editCuriosita = new DialogEditCuriosita(parent,rs);
-							editCuriosita.show();
+							editCuriosita.edit();
 							break;
 						default:
 							modify=false;
@@ -722,7 +722,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			{
 				DialogEditStep editStep;
 				editStep = new DialogEditStep(parent,(Passo)dt.getPasso(m_sel_passo));
-				editStep.show();
+				editStep.edit();
 				paintDataStep(m_sel_passo);
 			}
 		}
@@ -799,7 +799,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
     	    rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditPaesaggio editPae;
            	editPae = new DialogEditPaesaggio(parent,rs);
-    	    editPae.show();
+    	    editPae.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -810,7 +810,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditFiore editFiore;
         	editFiore = new DialogEditFiore(parent,rs);
-            editFiore.show();
+            editFiore.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -821,7 +821,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditAlbero editAlbero;
         	editAlbero = new DialogEditAlbero(parent,rs);
-            editAlbero.show();
+            editAlbero.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -832,7 +832,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditFauna editFauna;
         	editFauna = new DialogEditFauna(parent,rs);
-            editFauna.show();
+            editFauna.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -843,7 +843,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditAmbienteNaturale editAmbienteNaturale;
             editAmbienteNaturale = new DialogEditAmbienteNaturale(parent,rs);
-            editAmbienteNaturale.show();
+            editAmbienteNaturale.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -854,7 +854,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditMeteo editMeteo;
             editMeteo = new DialogEditMeteo(parent,rs);
-            editMeteo.show();
+            editMeteo.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -865,7 +865,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditMonumento editMonumento;
             editMonumento = new DialogEditMonumento(parent,rs);
-            editMonumento.show();
+            editMonumento.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -876,7 +876,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditIntervista editIntervista;
             editIntervista = new DialogEditIntervista(parent,rs);
-            editIntervista.show();
+            editIntervista.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -887,7 +887,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditFatto editFatto;
             editFatto = new DialogEditFatto(parent,rs);
-            editFatto.show();
+            editFatto.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -898,7 +898,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditCuriosita editCuriosita;
             editCuriosita = new DialogEditCuriosita(parent,rs);
-            editCuriosita.show();
+            editCuriosita.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -910,7 +910,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
       	    DialogEditPaesaggio editPae;
             editPae = new DialogEditPaesaggio(parent,rs);
-    	    editPae.show();
+    	    editPae.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -921,7 +921,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditFiore editFiore;
         	editFiore = new DialogEditFiore(parent,rs);
-            editFiore.show();
+            editFiore.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -932,7 +932,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditAlbero editAlbero;
         	editAlbero = new DialogEditAlbero(parent,rs);
-            editAlbero.show();
+            editAlbero.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -943,7 +943,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditFauna editFauna;
         	editFauna = new DialogEditFauna(parent,rs);
-            editFauna.show();
+            editFauna.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -954,7 +954,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditAmbienteNaturale editAmbienteNaturale;
             editAmbienteNaturale = new DialogEditAmbienteNaturale(parent,rs);
-            editAmbienteNaturale.show();
+            editAmbienteNaturale.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -965,7 +965,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditMeteo editMeteo;
             editMeteo = new DialogEditMeteo(parent,rs);
-            editMeteo.show();
+            editMeteo.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -976,7 +976,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditMonumento editMonumento;
             editMonumento = new DialogEditMonumento(parent,rs);
-            editMonumento.show();
+            editMonumento.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -987,7 +987,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditIntervista editIntervista;
             editIntervista = new DialogEditIntervista(parent,rs);
-            editIntervista.show();
+            editIntervista.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -998,7 +998,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditFatto editFatto;
             editFatto = new DialogEditFatto(parent,rs);
-            editFatto.show();
+            editFatto.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -1009,7 +1009,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
 			rs=dt.getResource(coord.sel_col,coord.sel_passo,coord.sel_res);
             DialogEditCuriosita editCuriosita;
             editCuriosita = new DialogEditCuriosita(parent,rs);
-            editCuriosita.show();
+            editCuriosita.edit();
             rs.updateImg(this);
             m_Gbuffer.drawImage(rs.n,m_poscol[coord.sel_col]+2,vRowGet(coord.sel_passo+1)+2+(coord.sel_res*HRES),this);
 			repaint();
@@ -1025,52 +1025,52 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
                 case 0:
             	    DialogEditPaesaggio editPae;
                 	editPae = new DialogEditPaesaggio(parent,rs);
-    	            editPae.show();
+    	            editPae.edit();
     	            break;
     	        case 1:
                	    DialogEditFiore editFiore;
         	        editFiore = new DialogEditFiore(parent,rs);
-            	    editFiore.show();
+            	    editFiore.edit();
             	    break;
             	case 2:
                	    DialogEditAlbero editAlbero;
         	        editAlbero = new DialogEditAlbero(parent,rs);
-            	    editAlbero.show();
+            	    editAlbero.edit();
             	    break;
             	case 3:
                	    DialogEditFauna editFauna;
         	        editFauna = new DialogEditFauna(parent,rs);
-            	    editFauna.show();
+            	    editFauna.edit();
             	    break;
             	case 4:
             	    DialogEditAmbienteNaturale editAmbienteNaturale;
             	    editAmbienteNaturale = new DialogEditAmbienteNaturale(parent,rs);
-            	    editAmbienteNaturale.show();
+            	    editAmbienteNaturale.edit();
             	    break;
             	case 5:
             	    DialogEditMeteo editMeteo;
             	    editMeteo = new DialogEditMeteo(parent,rs);
-            	    editMeteo.show();
+            	    editMeteo.edit();
             	    break;
             	case 6:
             	    DialogEditMonumento editMonumento;
             	    editMonumento = new DialogEditMonumento(parent,rs);
-            	    editMonumento.show();
+            	    editMonumento.edit();
             	    break;
             	case 7:
             	    DialogEditIntervista editIntervista;
             	    editIntervista = new DialogEditIntervista(parent,rs);
-            	    editIntervista.show();
+            	    editIntervista.edit();
             	    break;
             	case 8:
             	    DialogEditFatto editFatto;
             	    editFatto = new DialogEditFatto(parent,rs);
-            	    editFatto.show();
+            	    editFatto.edit();
             	    break;
             	case 9:
             	    DialogEditCuriosita editCuriosita;
             	    editCuriosita = new DialogEditCuriosita(parent,rs);
-            	    editCuriosita.show();
+            	    editCuriosita.edit();
             	    break;
            	    default:
            	        modify=false;
@@ -1101,7 +1101,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
         {
     	    DialogEditStep editStep;
         	editStep = new DialogEditStep(parent,(Passo)dt.getPasso(m_sel_passo));
-    	    editStep.show();
+    	    editStep.edit();
     	    paintDataStep(m_sel_passo);
         }
         else if(command.equals("cancella"))
