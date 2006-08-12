@@ -335,53 +335,53 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
                 case 0:
                     DialogEditPaesaggio editPae;
                     editPae = new DialogEditPaesaggio(parent.parent, rs);
-                    editPae.show();
+                    editPae.edit();
                     break;
                 case 1:
                     DialogEditFiore editFiore;
                     editFiore = new DialogEditFiore(parent.parent, rs);
-                    editFiore.show();
+                    editFiore.edit();
                     break;
                 case 2:
                     DialogEditAlbero editAlbero;
                     editAlbero = new DialogEditAlbero(parent.parent, rs);
-                    editAlbero.show();
+                    editAlbero.edit();
                     break;
                 case 3:
                     DialogEditFauna editFauna;
                     editFauna = new DialogEditFauna(parent.parent, rs);
-                    editFauna.show();
+                    editFauna.edit();
                     break;
                 case 4:
                     DialogEditAmbienteNaturale editAmbienteNaturale;
                     editAmbienteNaturale = new DialogEditAmbienteNaturale(
                             parent.parent, rs);
-                    editAmbienteNaturale.show();
+                    editAmbienteNaturale.edit();
                     break;
                 case 5:
                     DialogEditMeteo editMeteo;
                     editMeteo = new DialogEditMeteo(parent.parent, rs);
-                    editMeteo.show();
+                    editMeteo.edit();
                     break;
                 case 6:
                     DialogEditMonumento editMonumento;
                     editMonumento = new DialogEditMonumento(parent.parent, rs);
-                    editMonumento.show();
+                    editMonumento.edit();
                     break;
                 case 7:
                     DialogEditIntervista editIntervista;
                     editIntervista = new DialogEditIntervista(parent.parent, rs);
-                    editIntervista.show();
+                    editIntervista.edit();
                     break;
                 case 8:
                     DialogEditFatto editFatto;
                     editFatto = new DialogEditFatto(parent.parent, rs);
-                    editFatto.show();
+                    editFatto.edit();
                     break;
                 case 9:
                     DialogEditCuriosita editCuriosita;
                     editCuriosita = new DialogEditCuriosita(parent.parent, rs);
-                    editCuriosita.show();
+                    editCuriosita.edit();
                     break;
                 default:
                     modify = false;
@@ -451,7 +451,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditPaesaggio editPae;
             editPae = new DialogEditPaesaggio(parent.parent, rs);
-            editPae.show();
+            editPae.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -460,7 +460,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditFiore editFiore;
             editFiore = new DialogEditFiore(parent.parent, rs);
-            editFiore.show();
+            editFiore.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -469,7 +469,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditAlbero editAlbero;
             editAlbero = new DialogEditAlbero(parent.parent, rs);
-            editAlbero.show();
+            editAlbero.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -478,7 +478,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditFauna editFauna;
             editFauna = new DialogEditFauna(parent.parent, rs);
-            editFauna.show();
+            editFauna.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -488,7 +488,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             DialogEditAmbienteNaturale editAmbienteNaturale;
             editAmbienteNaturale = new DialogEditAmbienteNaturale(
                     parent.parent, rs);
-            editAmbienteNaturale.show();
+            editAmbienteNaturale.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -497,7 +497,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditMeteo editMeteo;
             editMeteo = new DialogEditMeteo(parent.parent, rs);
-            editMeteo.show();
+            editMeteo.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -506,7 +506,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditMonumento editMonumento;
             editMonumento = new DialogEditMonumento(parent.parent, rs);
-            editMonumento.show();
+            editMonumento.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -515,7 +515,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditIntervista editIntervista;
             editIntervista = new DialogEditIntervista(parent.parent, rs);
-            editIntervista.show();
+            editIntervista.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -524,7 +524,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditFatto editFatto;
             editFatto = new DialogEditFatto(parent.parent, rs);
-            editFatto.show();
+            editFatto.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -533,7 +533,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditCuriosita editCuriosita;
             editCuriosita = new DialogEditCuriosita(parent.parent, rs);
-            editCuriosita.show();
+            editCuriosita.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -544,7 +544,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditPaesaggio editPae;
             editPae = new DialogEditPaesaggio(parent.parent, rs);
-            editPae.show();
+            editPae.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -553,7 +553,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditFiore editFiore;
             editFiore = new DialogEditFiore(parent.parent, rs);
-            editFiore.show();
+            editFiore.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -562,7 +562,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditAlbero editAlbero;
             editAlbero = new DialogEditAlbero(parent.parent, rs);
-            editAlbero.show();
+            editAlbero.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -571,7 +571,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditFauna editFauna;
             editFauna = new DialogEditFauna(parent.parent, rs);
-            editFauna.show();
+            editFauna.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -581,7 +581,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             DialogEditAmbienteNaturale editAmbienteNaturale;
             editAmbienteNaturale = new DialogEditAmbienteNaturale(
                     parent.parent, rs);
-            editAmbienteNaturale.show();
+            editAmbienteNaturale.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -590,7 +590,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditMeteo editMeteo;
             editMeteo = new DialogEditMeteo(parent.parent, rs);
-            editMeteo.show();
+            editMeteo.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -599,7 +599,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditMonumento editMonumento;
             editMonumento = new DialogEditMonumento(parent.parent, rs);
-            editMonumento.show();
+            editMonumento.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -608,7 +608,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditIntervista editIntervista;
             editIntervista = new DialogEditIntervista(parent.parent, rs);
-            editIntervista.show();
+            editIntervista.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -617,7 +617,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditFatto editFatto;
             editFatto = new DialogEditFatto(parent.parent, rs);
-            editFatto.show();
+            editFatto.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -626,7 +626,7 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             rs = dr.getResource(pos);
             DialogEditCuriosita editCuriosita;
             editCuriosita = new DialogEditCuriosita(parent.parent, rs);
-            editCuriosita.show();
+            editCuriosita.edit();
             rs.updateImg(this.parent.tab);
             m_Gbuffer.drawImage(rs.n, 0, pos * HRES, this);
             repaint();
@@ -640,53 +640,53 @@ public class PRBRepository extends Canvas implements MouseListener, ActionListen
             case 0:
                 DialogEditPaesaggio editPae;
                 editPae = new DialogEditPaesaggio(parent.parent, rs);
-                editPae.show();
+                editPae.edit();
                 break;
             case 1:
                 DialogEditFiore editFiore;
                 editFiore = new DialogEditFiore(parent.parent, rs);
-                editFiore.show();
+                editFiore.edit();
                 break;
             case 2:
                 DialogEditAlbero editAlbero;
                 editAlbero = new DialogEditAlbero(parent.parent, rs);
-                editAlbero.show();
+                editAlbero.edit();
                 break;
             case 3:
                 DialogEditFauna editFauna;
                 editFauna = new DialogEditFauna(parent.parent, rs);
-                editFauna.show();
+                editFauna.edit();
                 break;
             case 4:
                 DialogEditAmbienteNaturale editAmbienteNaturale;
                 editAmbienteNaturale = new DialogEditAmbienteNaturale(
                         parent.parent, rs);
-                editAmbienteNaturale.show();
+                editAmbienteNaturale.edit();
                 break;
             case 5:
                 DialogEditMeteo editMeteo;
                 editMeteo = new DialogEditMeteo(parent.parent, rs);
-                editMeteo.show();
+                editMeteo.edit();
                 break;
             case 6:
                 DialogEditMonumento editMonumento;
                 editMonumento = new DialogEditMonumento(parent.parent, rs);
-                editMonumento.show();
+                editMonumento.edit();
                 break;
             case 7:
                 DialogEditIntervista editIntervista;
                 editIntervista = new DialogEditIntervista(parent.parent, rs);
-                editIntervista.show();
+                editIntervista.edit();
                 break;
             case 8:
                 DialogEditFatto editFatto;
                 editFatto = new DialogEditFatto(parent.parent, rs);
-                editFatto.show();
+                editFatto.edit();
                 break;
             case 9:
                 DialogEditCuriosita editCuriosita;
                 editCuriosita = new DialogEditCuriosita(parent.parent, rs);
-                editCuriosita.show();
+                editCuriosita.edit();
                 break;
             default:
                 modify = false;
