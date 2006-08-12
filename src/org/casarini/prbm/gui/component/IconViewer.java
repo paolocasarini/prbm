@@ -22,7 +22,9 @@ import java.awt.*;
 
 public class IconViewer extends Canvas
 {
-    protected Image image;
+	private static final long serialVersionUID = -4510684193292441184L;
+
+	protected Image image;
     
     public IconViewer()
     {

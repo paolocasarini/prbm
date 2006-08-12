@@ -21,7 +21,9 @@ package org.casarini.prbm.model;
 
 public class PRBParam implements java.io.Serializable
 {
-    public String title;
+	private static final long serialVersionUID = -343745672022010476L;
+
+	public String title;
     public String site;
     public boolean ext;
     public String data;

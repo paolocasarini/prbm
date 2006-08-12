@@ -23,7 +23,9 @@ import java.awt.event.*;
 
 public class CTextField extends TextField
 {
-    public static final int CTF_ALL=0;
+	private static final long serialVersionUID = 259854385567548824L;
+
+	public static final int CTF_ALL=0;
     public static final int CTF_NUM=1;
     public static final int CTF_INT=2;
 	public static final int CTF_FLOAT=3;

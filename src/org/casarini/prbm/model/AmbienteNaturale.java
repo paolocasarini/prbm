@@ -33,7 +33,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class AmbienteNaturale extends Scheda implements java.io.Serializable
 {
-    public String localita;
+	private static final long serialVersionUID = 892931624802455818L;
+
+	public String localita;
     public String desGenerale;
     public String habitat;
     public String flora;

@@ -59,7 +59,9 @@ import org.casarini.prbm.util.IconFactory;
 
 public class Tabella extends Canvas implements MouseListener,ActionListener
 {
-    //costanti
+	private static final long serialVersionUID = 6325002874090623699L;
+
+	//costanti
     public static final int HRES=15;                    //altezza risorsa
     public static final int NRESDEF=3;                  //numero di risorse di default
     public static final int HCOLDEF = HRES*NRESDEF;     //altezza cella di default
@@ -220,7 +222,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
     public void resize()
     {
         setHeightRow();
-        int max_y=((Integer)m_posrow.elementAt(m_posrow.size()-1)).intValue();
+//        int max_y=((Integer)m_posrow.elementAt(m_posrow.size()-1)).intValue();
 		setSize(670,4096);
 //        setSize(m_poscol[3]+m_size_col+m_inithspace,max_y+m_initvspace);
         parent.c_scrollpane.doLayout();
@@ -375,7 +377,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
     void setSelection(int x,int y)
     {
         //boccheggio la posizione di click nella griglia
-        int col=-1,passo=-1,res=-1;
+        int col=-1,passo=-1;
         if(x>=m_poscol[0]&&x<m_poscol[1])
             col=0;
         else if(x>=m_poscol[1]&&x<m_poscol[4])
@@ -1139,7 +1141,6 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
     public void toHTML(PRBParam param, String template)
     {
         
-        int count=0;
         //imposto estensione
         String ext;
         if(param.ext)

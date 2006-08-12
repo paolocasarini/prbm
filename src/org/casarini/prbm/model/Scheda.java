@@ -31,7 +31,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Scheda implements Serializable
 {
-    public String didascalia;
+	private static final long serialVersionUID = 2698819585273624610L;
+
+	public String didascalia;
     public String icona;
     public String timestamp;
     public String note;

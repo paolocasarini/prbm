@@ -28,7 +28,9 @@ import org.casarini.prbm.gui.util.YellowFilter;
 
 public class Passo implements java.io.Serializable
 {
-    public int azimut;
+	private static final long serialVersionUID = -3155404253437407658L;
+
+	public int azimut;
     public int metri;
     public int tempo;
     Vector[] cols;

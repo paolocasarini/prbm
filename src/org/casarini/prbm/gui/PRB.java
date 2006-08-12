@@ -40,9 +40,10 @@ import org.casarini.prbm.model.DataTable;
 import org.casarini.prbm.model.PRBParam;
 import org.casarini.prbm.model.PRBRepositoryData;
 
-public class PRB extends Frame implements WindowListener, ActionListener,
-        ComponentListener {
-    private static final String APP_TITLE_PREFIX = "PRB - Percorso Rettificato Belga - ";
+public class PRB extends Frame implements WindowListener, ActionListener, ComponentListener {
+	private static final long serialVersionUID = 3914113082433881542L;
+
+	private static final String APP_TITLE_PREFIX = "PRB - Percorso Rettificato Belga - ";
     
     public static final String MENU_PRB_NEW = "Nuovo";
     public static final String MENU_PRB_OPEN = "Apri...";
@@ -238,11 +239,11 @@ public class PRB extends Frame implements WindowListener, ActionListener,
         else if (cmd.equals(MENU_PRB_SAVEAS))
             selectedSaveAs();
         else if (cmd.equalsIgnoreCase("Parametri del PRB")) {
-            SetPRBBox theSetPRBBox = new SetPRBBox(this, c_param);
+            new SetPRBBox(this, c_param);
         } else if (cmd.equalsIgnoreCase("Crea Presentazione Finale"))
             selectedCreate();
         else if (cmd.equalsIgnoreCase("Uscita (Bim Bum...)")) {
-            QuitBox qb = new QuitBox(this);
+            new QuitBox(this);
         } else if (cmd.equalsIgnoreCase("Mostra Raccoglitore")) {
             repositoryDialog.setVisible(true);
         } else if (cmd.equalsIgnoreCase("Nascondi Raccoglitore")) {
@@ -254,9 +255,9 @@ public class PRB extends Frame implements WindowListener, ActionListener,
         } else if (cmd.equals("Salva Raccoglitore con nome...")) {
             selectedSaveAsRepository();
         } else if (cmd.equalsIgnoreCase("Informazioni sul programma")) {
-            AboutBox ab = new AboutBox(this);
+            new AboutBox(this);
         } else if (cmd.equalsIgnoreCase("Supporto al Programma")) {
-            ;
+        	// TODO
         }
 
     }
@@ -264,7 +265,7 @@ public class PRB extends Frame implements WindowListener, ActionListener,
     //STOP implementazione ActionListener
 
     public static void main(String args[]) {
-        PRB prb = new PRB();
+        new PRB();
     }
 
     public void selectedNew() {
@@ -303,7 +304,7 @@ public class PRB extends Frame implements WindowListener, ActionListener,
         FileDialog f = new FileDialog(this, MENU_PRB_OPEN, FileDialog.LOAD);
         f.setFilenameFilter(c_filter);
         f.setFile("*.prb");
-        f.show();
+        f.setVisible(true);
         if (f.getFile() != null) {
             String filename = f.getDirectory() + f.getFile();
             try {
@@ -322,8 +323,7 @@ public class PRB extends Frame implements WindowListener, ActionListener,
                 setPrbModified(false);
                 updateTitle();
             } catch (Exception e) {
-                AttentionDialog alert = new AttentionDialog(this,
-                        "Apertura non riuscita", e.toString());
+                new AttentionDialog(this, "Apertura non riuscita", e.toString());
             }
         }
     }
@@ -375,7 +375,7 @@ public class PRB extends Frame implements WindowListener, ActionListener,
         FileDialog f = new FileDialog(this, MENU_PRB_SAVEAS, FileDialog.SAVE);
         f.setFilenameFilter(c_rfilter);
         f.setFile("*.prb");
-        f.show();
+        f.setVisible(true);
         if (f.getFile() != null) {
             prbPath = f.getDirectory() + f.getFile();
             selectedSave();
@@ -415,7 +415,7 @@ public class PRB extends Frame implements WindowListener, ActionListener,
                 FileDialog.SAVE);
         f.setFilenameFilter(c_rfilter);
         f.setFile("*.prbr");
-        f.show();
+        f.setVisible(true);
         if (f.getFile() != null) {
             repositoryPath = f.getDirectory() + f.getFile();
             selectedSaveRepository();
@@ -436,7 +436,7 @@ public class PRB extends Frame implements WindowListener, ActionListener,
                 FileDialog.LOAD);
         f.setFilenameFilter(c_rfilter);
         f.setFile("*.prbr");
-        f.show();
+        f.setVisible(true);
         if (f.getFile() != null) {
             repositoryPath = f.getDirectory() + f.getFile();
             

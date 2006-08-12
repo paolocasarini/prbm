@@ -23,7 +23,9 @@ import java.awt.event.*;
 
 public class QuitBox extends Dialog implements ActionListener
 {
-    Frame parent;
+	private static final long serialVersionUID = -1624053868644371450L;
+
+	Frame parent;
     Button yesButton;
     Button noButton;
 

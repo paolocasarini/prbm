@@ -30,7 +30,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Albero extends Scheda implements java.io.Serializable
 {
-    public String nomeComune;
+	private static final long serialVersionUID = 1589803532894755025L;
+
+	public String nomeComune;
     public String nomeScientifico;
     public String desAlbero;
     public String portamento;

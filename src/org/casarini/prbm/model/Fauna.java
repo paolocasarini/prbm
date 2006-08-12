@@ -33,7 +33,9 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Fauna extends Scheda implements java.io.Serializable
 {
-    public String nomeComune;
+	private static final long serialVersionUID = 5754584941733183113L;
+
+	public String nomeComune;
     public String nomeScientifico;
     public String desAnimale;
     public String dimensioni;

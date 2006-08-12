@@ -33,6 +33,8 @@ import org.casarini.prbm.util.ImageInfo;
 
 public class Meteo extends Scheda implements java.io.Serializable
 {
+	private static final long serialVersionUID = -5865297013175770423L;
+
 	public int temperatura;
 	public int umidita;
 	public int pressione;

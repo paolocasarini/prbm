@@ -36,9 +36,10 @@ import org.casarini.prbm.gui.dialog.PRBRepositoryDialog;
 import org.casarini.prbm.model.PRBRepositoryData;
 import org.casarini.prbm.model.Resource;
 
-public class PRBRepository extends Canvas implements MouseListener,
-        ActionListener {
-    //costanti
+public class PRBRepository extends Canvas implements MouseListener, ActionListener {
+	private static final long serialVersionUID = 7473054035505593972L;
+
+	//costanti
     public static final int HRES = 15; //altezza risorsa
 
     public static final int RICALCOLA = 1;
@@ -209,9 +210,7 @@ public class PRBRepository extends Canvas implements MouseListener,
     /* nella cella selezionata */
     /** ************************************************************************** */
     int addNewResource(int type, String title, boolean prima) {
-        int pos, oldmaxh, h;
-        Resource r;
-        int ret;
+        int pos;
 
         if (m_sel_res == -1)
             if (prima)
@@ -240,7 +239,7 @@ public class PRBRepository extends Canvas implements MouseListener,
     /* cella selezionata */
     /** ************************************************************************** */
     void addClipboardResource(boolean prima) {
-        int pos, oldmaxh, h;
+        int pos;
         Resource r = parent.tab.clipboard.copyRes(parent.tab);
 
         if (m_sel_res == -1)
@@ -268,8 +267,6 @@ public class PRBRepository extends Canvas implements MouseListener,
     /* deleteResourse: toglie risorsa selezionata */
     /** ************************************************************************** */
     void deleteResource() {
-        Resource r;
-
         dr.cutResource(m_sel_res);
         m_Gbuffer.clearRect(0, 0, m_size_col, 500);
         fillResource(0);

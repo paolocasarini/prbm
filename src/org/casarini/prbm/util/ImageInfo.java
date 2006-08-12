@@ -248,8 +248,6 @@ public class ImageInfo {
 	private int numberOfImages;
 	private int physicalHeightDpi;
 	private int physicalWidthDpi;
-	private int bitBuf;
-	private int bitPos;
 
 	private void addComment(String s) {
 		if (comments == null) {
@@ -1125,83 +1123,7 @@ public class ImageInfo {
 		} while (!finished);
 		return sb.toString();
 	}
-
-	private long readUBits( int numBits ) throws IOException
-	{
-		if (numBits == 0) {
-			return 0;
-		}
-		int bitsLeft = numBits;
-		long result = 0;
-		if (bitPos == 0) { //no value in the buffer - read a byte
-			if (in != null) {
-				bitBuf = in.read();
-			} else {
-				bitBuf = din.readByte();
-			}
-			bitPos = 8;
-		}
-        
-	    while( true )
-        {
-            int shift = bitsLeft - bitPos;
-            if( shift > 0 )
-            {
-                // Consume the entire buffer
-                result |= bitBuf << shift;
-                bitsLeft -= bitPos;
-
-                // Get the next byte from the input stream
-                if (in != null) {
-                  bitBuf = in.read();
-                } else {
-                  bitBuf = din.readByte();
-                }
-                bitPos = 8;
-            }
-            else
-            {
-             	// Consume a portion of the buffer
-                result |= bitBuf >> -shift;
-                bitPos -= bitsLeft;
-                bitBuf &= 0xff >> (8 - bitPos);	// mask off the consumed bits
-
-                return result;
-            }
-        }        
-    }
     
-    /**
-     * Read a signed integer value from input.
-     * @param numBits number of bits to read
-     */
-    private int readSBits(int numBits) throws IOException
-    {
-        // Get the number as an unsigned value.
-        long uBits = readUBits( numBits );
-
-        // Is the number negative?
-        if( ( uBits & (1L << (numBits - 1))) != 0 )
-        {
-            // Yes. Extend the sign.
-            uBits |= -1L << numBits;
-        }
-
-        return (int)uBits;        
-    }  
-   
-/*	private void synchBits()
-	{
-		bitBuf = 0;
-		bitPos = 0;
-	}*/
-
-/*	private String readLine(int firstChar) throws IOException {
-		StringBuffer result = new StringBuffer();
-		result.append((char)firstChar);
-		return readLine(result);
-	}*/
-
 	private static void run(String sourceName, InputStream in, ImageInfo imageInfo, boolean verbose) {
 		imageInfo.setInput(in);
 		imageInfo.setDetermineImageNumber(true);
