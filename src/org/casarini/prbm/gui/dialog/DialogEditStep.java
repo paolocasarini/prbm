@@ -88,8 +88,6 @@ public class DialogEditStep extends DefaultDialogEdit
 		//}}
 
 		//{{REGISTER_LISTENERS
-		SymWindow aSymWindow = new SymWindow();
-		this.addWindowListener(aSymWindow);
 		SymAction lSymAction = new SymAction();
 		cancelbutton.addActionListener(lSymAction);
 		SymKey aSymKey = new SymKey();
@@ -140,22 +138,6 @@ public class DialogEditStep extends DefaultDialogEdit
 	java.awt.Button okbutton;
 	java.awt.Button cancelbutton;
 	//}}
-
-	class SymWindow extends java.awt.event.WindowAdapter
-	{
-		public void windowClosing(java.awt.event.WindowEvent event)
-		{
-			Object object = event.getSource();
-			if (object == DialogEditStep.this)
-				DialogEditStep_WindowClosing(event);
-		}
-	}
-	
-	void DialogEditStep_WindowClosing(java.awt.event.WindowEvent event)
-	{
-		setVisible(false);
-		dispose();
-	}
 
 	class SymAction implements java.awt.event.ActionListener
 	{

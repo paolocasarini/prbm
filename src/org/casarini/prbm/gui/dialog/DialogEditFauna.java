@@ -395,8 +395,6 @@ public class DialogEditFauna extends DefaultDialogEdit
 
 
 		//LISTENERS
-		SymWindow aSymWindow = new SymWindow();
-		this.addWindowListener(aSymWindow);
 		SymMouse aSymMouse = new SymMouse();
 		okbutton.addMouseListener(aSymMouse);
 		cancelbutton.addMouseListener(aSymMouse);
@@ -489,47 +487,6 @@ public class DialogEditFauna extends DefaultDialogEdit
 				iSucc.setEnabled(true);
 			}
 		}
-	}
-
-/*	public void addNotify()
-	{
-  	    // Record the size of the window prior to calling parents addNotify.
-	    Dimension d = getSize();
-
-		super.addNotify();
-
-		if (fComponentsAdjusted)
-			return;
-
-		// Adjust components according to the insets
-		setSize(insets().left + insets().right + d.width, insets().top + insets().bottom + d.height);
-		Component components[] = getComponents();
-		for (int i = 0; i < components.length; i++)
-		{
-			Point p = components[i].getLocation();
-			p.translate(insets().left, insets().top);
-			components[i].setLocation(p);
-		}
-		fComponentsAdjusted = true;
-	}
-
-    // Used for addNotify check.
-	boolean fComponentsAdjusted = false;*/
-
-    class SymWindow extends java.awt.event.WindowAdapter
-	{
-		public void windowClosing(java.awt.event.WindowEvent event)
-		{
-			Object object = event.getSource();
-			if (object == DialogEditFauna.this)
-				DialogEditFauna_WindowClosing(event);
-		}
-	}
-	
-	void DialogEditFauna_WindowClosing(java.awt.event.WindowEvent event)
-	{
-		setVisible(false);
-		dispose();
 	}
 
 	class SymMouse extends java.awt.event.MouseAdapter

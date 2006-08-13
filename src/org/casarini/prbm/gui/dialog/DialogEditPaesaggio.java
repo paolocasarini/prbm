@@ -334,8 +334,6 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
         
         
 		//{{REGISTER_LISTENERS
-		SymWindow aSymWindow = new SymWindow();
-		this.addWindowListener(aSymWindow);
 		SymItem lSymItem = new SymItem();
 		lIcona.addItemListener(lSymItem);
 		SymMouse aSymMouse = new SymMouse();
@@ -438,22 +436,6 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
     CTextField tfVideo;
     DimButton browse, browseV;
 	//}}
-
-	class SymWindow extends java.awt.event.WindowAdapter
-	{
-		public void windowClosing(java.awt.event.WindowEvent event)
-		{
-			Object object = event.getSource();
-			if (object == DialogEditPaesaggio.this)
-				Dialog1_WindowClosing(event);
-		}
-	}
-	
-	void Dialog1_WindowClosing(java.awt.event.WindowEvent event)
-	{
-		setVisible(false);
-		dispose();
-	}
 
 	class SymItem implements java.awt.event.ItemListener
 	{
