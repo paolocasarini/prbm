@@ -5,6 +5,24 @@ PRBM - Percorso Rettificato Belga Multimediale
 ! Bug fix
 - Note
 
+Versione 0.6.8
+  - Con l'occasione di mettere le mani al codice per fare eseguire
+    correttamente il prbm ad una jvm 1.5 ho fatto alcuni interventi di 
+    refactoring 
+  # porting dell'applicazione su Java 1.5
+  ! Bug fixing 
+Versione 0.6.7
+  - Questa versione non doveva esserci ma il passo previsto per la 0.7.0 era
+    troppo grosso per il tempo a disposizione e quindi è stata fatta una nuova
+    minor release.
+  + Creazione del sito di progetto con la documentazione per la compilazione e
+    lo sviluppo dell'applicazione.
+  # Riorganizzazione della struttura dei sorgenti dell'applicazione.
+  + Creazione del file build.xml con i task per la compilazione, la
+    distribuzione e la pacchettizzazione.
+  + Aggiunto un nuovo comando per i template per la gestione delle dimensioni
+    delle immagini delle schede di osservazione.
+  ! Vari bug fix 
 Versione 0.6.6
   - Questa versione e' l'ultima versione prima della 0.7.0. Gia' le versioni
     0.6.4 e 0.6.5 erano delle versioni preparatorie.
