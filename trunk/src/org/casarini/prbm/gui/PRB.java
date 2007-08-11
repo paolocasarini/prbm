@@ -29,9 +29,8 @@ import java.text.SimpleDateFormat;
 import org.casarini.prbm.gui.component.Tabella;
 import org.casarini.prbm.gui.dialog.AboutBox;
 import org.casarini.prbm.gui.dialog.AttentionDialog;
+import org.casarini.prbm.gui.dialog.ClosePRBOptionPane;
 import org.casarini.prbm.gui.dialog.LoadRepositoryOptionPane;
-import org.casarini.prbm.gui.dialog.NewPRBOptionPane;
-import org.casarini.prbm.gui.dialog.OpenPRBOptionPane;
 import org.casarini.prbm.gui.dialog.PRBRepositoryDialog;
 import org.casarini.prbm.gui.dialog.QuitBox;
 import org.casarini.prbm.gui.dialog.SetPRBBox;
@@ -49,9 +48,15 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
     public static final String MENU_PRB_OPEN = "Apri...";
     public static final String MENU_PRB_SAVE = "Salva";
     public static final String MENU_PRB_SAVEAS = "Salva con nome...";
+    public static final String MENU_PRB_EXIT = "Uscita (Bim Bum...)";
     
-    public static final String MENU_REPOS_OPEN = "Apri Raccoglitore..."; 
-        
+    public static final String MENU_REPOS_OPEN = "Apri Raccoglitore...";
+    
+    private static final String SAVE_OPTION_ON_NEW = "Creando un nuovo documento PRB, si perderanno le modifiche\nnon salvate del documento corrente. Vuoi continuare?";
+    private static final String SAVE_OPTION_ON_OPEN = "Aprendo un documento PRB salvato, si perderanno le modifiche\nnon salvate del documento corrente. Vuoi continuare?";
+    private static final String SAVE_OPTION_ON_EXIT = "Uscendo dal programma, si perderanno le modifiche\nnon salvate del documento corrente. Vuoi continuare?";
+    private static final String SAVE_OPTION_ON_EXITR = "Uscendo dal programma, si perderanno le modifiche\nnon salvate del raccoglitore corrente. Vuoi continuare?";
+    
     /**
      * Costante usata per individuare una risposta positiva su un option pane
      */
@@ -242,8 +247,8 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
             new SetPRBBox(this, c_param);
         } else if (cmd.equalsIgnoreCase("Crea Presentazione Finale"))
             selectedCreate();
-        else if (cmd.equalsIgnoreCase("Uscita (Bim Bum...)")) {
-            new QuitBox(this);
+        else if (cmd.equals(MENU_PRB_EXIT)) {
+        	selectedExit();
         } else if (cmd.equalsIgnoreCase("Mostra Raccoglitore")) {
             repositoryDialog.setVisible(true);
         } else if (cmd.equalsIgnoreCase("Nascondi Raccoglitore")) {
@@ -267,15 +272,40 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
     public static void main(String args[]) {
         new PRB();
     }
-
-    public void selectedNew() {
+    
+    private void selectedExit() {
+    	int prbOption = IDOK;
+    	int repositoryOption = IDOK;
+    	
         if (isPrbModified()) {
-            NewPRBOptionPane optionPane = new NewPRBOptionPane(this);
+            ClosePRBOptionPane optionPane = new ClosePRBOptionPane(this, MENU_PRB_EXIT, SAVE_OPTION_ON_EXIT);
             optionPane.setVisible(true);
-            if (optionPane.getResult() == IDCANCEL) {
+            prbOption = optionPane.getResult();
+            optionPane.dispose();
+        }
+        if (prbOption == IDOK && isRepositoryModified()) {
+            ClosePRBOptionPane optionPane = new ClosePRBOptionPane(this, MENU_PRB_EXIT, SAVE_OPTION_ON_EXITR);
+            optionPane.setVisible(true);
+            prbOption = optionPane.getResult();
+            optionPane.dispose();
+        }
+        
+        if (prbOption == IDCANCEL || repositoryOption == IDCANCEL) {
+            return;
+        }
+        
+        new QuitBox(this);
+    }
+
+    public void selectedNew() {    	
+        if (isPrbModified()) {
+            ClosePRBOptionPane optionPane = new ClosePRBOptionPane(this, MENU_PRB_NEW, SAVE_OPTION_ON_NEW);
+            optionPane.setVisible(true);
+            int prbOption = optionPane.getResult();
+            optionPane.dispose();
+            if (prbOption == IDCANCEL) {
                 return;
             }
-            optionPane.dispose();
         }
 
         reset();
@@ -291,14 +321,15 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
         updateTitle();
     }
 
-    public void selectedOpen() {
+    public void selectedOpen() {  	
         if (isPrbModified()) {
-            OpenPRBOptionPane optionPane = new OpenPRBOptionPane(this);
+            ClosePRBOptionPane optionPane = new ClosePRBOptionPane(this, MENU_PRB_OPEN, SAVE_OPTION_ON_OPEN);
             optionPane.setVisible(true);
-            if (optionPane.getResult() == IDCANCEL) {
+            int prbOption = optionPane.getResult();
+            optionPane.dispose();
+            if (prbOption == IDCANCEL) {
                 return;
             }
-            optionPane.dispose();
         }
         
         FileDialog f = new FileDialog(this, MENU_PRB_OPEN, FileDialog.LOAD);
