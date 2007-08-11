@@ -26,7 +26,7 @@ public class AboutBox extends Dialog implements ActionListener
 {
 	private static final long serialVersionUID = 6394351472435394918L;
 
-	public static final String VERSION="0.6.8";
+	public static final String VERSION="0.6.9";
 	Label label1,label2,label3,label4,label5;
 	Button OKButton;
 
@@ -44,7 +44,7 @@ public class AboutBox extends Dialog implements ActionListener
 		label2 = new Label("versione "+VERSION,Label.CENTER);
 		label2.setBounds(6,44,318,13);
 		add(label2);
-		label3 = new Label("realizzato da Paolo Casarini, Copyright (C) 1998-2003",Label.CENTER);
+		label3 = new Label("realizzato da Paolo Casarini, Copyright (C) 1998-2007",Label.CENTER);
 		label3.setBounds(6,70,318,13);
 		add(label3);
 		label4 = new Label("Andrea Baitelli: documento di specifica",Label.CENTER);
