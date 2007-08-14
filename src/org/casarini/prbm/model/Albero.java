@@ -109,7 +109,7 @@ public class Albero extends Scheda implements java.io.Serializable
         if(immagine.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.separatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(immagine));
@@ -127,7 +127,7 @@ public class Albero extends Scheda implements java.io.Serializable
         if(video.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.separatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 0, null));
@@ -222,24 +222,24 @@ public class Albero extends Scheda implements java.io.Serializable
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.curiosita", null, 0, null));
-        parser = new PRBMParser("template" + File.pathSeparator + template + File.pathSeparator + "albero.tmpl", file, nodes);
+        parser = new PRBMParser("template" + File.separator + template + File.separator + "albero.tmpl", file, nodes);
         parser.parse();
 
         if(immagine.length()!=0)
         {
             File f=new File(immagine);
             if(f.exists())
-                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.separatorChar)+1));
             else
-                System.out.println("Errore: non esiste il file "+dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
+                System.out.println("Errore: non esiste il file "+dir+immagine.substring(immagine.lastIndexOf(File.separatorChar)+1));
         }
         if(video.length()!=0)
         {
             File f=new File(video);
             if(f.exists())
-                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.separatorChar)+1));
             else
-                System.out.println("Errore: non esiste il file "+dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
+                System.out.println("Errore: non esiste il file "+dir+immagine.substring(immagine.lastIndexOf(File.separatorChar)+1));
         }
     }
 

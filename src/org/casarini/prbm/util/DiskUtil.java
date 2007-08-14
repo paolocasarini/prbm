@@ -55,7 +55,7 @@ public class DiskUtil
 
         if(!dirfile.isAbsolute())
         {
-        	dir = home + File.pathSeparator + dir;
+        	dir = home + File.separator + dir;
         	dirfile=new File(dir);
         }
 

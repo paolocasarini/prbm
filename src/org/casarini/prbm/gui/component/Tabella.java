@@ -1155,12 +1155,12 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
         if(param.dir.length()!=0)
         	dir=param.dir;
         else
-        	dir=home + File.pathSeparator + "output";
+        	dir=home + File.separator + "output";
 
         File dirfile=new File(dir);
         if(!dirfile.isAbsolute())
         {
-        	dir=home + File.pathSeparator + dir;
+        	dir=home + File.separator + dir;
         	dirfile=new File(dir);
         }
         if(!dirfile.exists()||!dirfile.isDirectory())
@@ -1373,7 +1373,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
         }
         else
             nodes.addElement(new PRBMParserNode('I',"percorso.dir", null, 0, null));
-        parser = new PRBMParser("template" + File.pathSeparator + template + File.pathSeparatorChar + "info.tmpl", dir + "/info.html", nodes);
+        parser = new PRBMParser("template" + File.separator + template + File.separatorChar + "info.tmpl", dir + "/info.html", nodes);
         parser.parse();
 
         //INDEX.HTML
@@ -1430,7 +1430,7 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
             }
         }
         nodes.addElement(new PRBMParserNode('R',"traccia",null,m_row,tnodes));
-        parser = new PRBMParser("template" + File.pathSeparatorChar + template + File.pathSeparatorChar + "index.tmpl", dir+"/index.html", nodes);
+        parser = new PRBMParser("template" + File.separator + template + File.separator + "index.tmpl", dir+"/index.html", nodes);
         parser.parse();
     }
     
