@@ -541,7 +541,7 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
         if (prbPath == null) {
             setTitle(APP_TITLE_PREFIX + "<senza nome>");
         } else {
-            setTitle(APP_TITLE_PREFIX + prbPath.substring(prbPath.lastIndexOf("\\")+1));        
+            setTitle(APP_TITLE_PREFIX + prbPath.substring(prbPath.lastIndexOf(File.pathSeparatorChar)+1));        
         }
     }
     
