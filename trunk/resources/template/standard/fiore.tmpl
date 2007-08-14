@@ -38,7 +38,11 @@
          <P><IMG SRC="<?PRBM subst scheda.immagine.src?>" ALT="<?PRBM subst scheda.didascalia?>" BORDER="0" <?PRBM calc_dim scheda.immagine.dimensioni(240, 192)?>><BR>
          <FONT SIZE="-1"><?PRBM subst scheda.didascalia?></FONT></P>
 	 <?PRBM endif scheda.immagine?>
-	 <?PRBM if scheda.video?>
+         <?PRBM if scheda.imgerbario?>  
+         <P><IMG SRC="<?PRBM subst scheda.imgerbario.src?>" BORDER=0 <?PRBM calc_dim scheda.imgerbario.dimensioni(240, 192)?>><BR>
+         <FONT SIZE=-1>Immagine per l'erbario</FONT></P>
+         <?PRBM endif scheda.imgerbario?>
+   	 <?PRBM if scheda.video?>
          <center><a href="<?PRBM subst scheda.video.src?>"><img src="immagini/video.gif" border=0></a></center>
 	 <?PRBM endif scheda.video?>
 	 &nbsp;
