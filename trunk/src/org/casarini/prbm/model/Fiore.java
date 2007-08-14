@@ -45,6 +45,7 @@ public class Fiore extends Scheda implements java.io.Serializable
     public String distribuzione;
     public String proprieta;
     public String curiosita;
+    public String imgerbario;
     
     public Fiore()
     {
@@ -83,6 +84,7 @@ public class Fiore extends Scheda implements java.io.Serializable
 		s.curiosita=curiosita;
 		s.immagine=immagine;
 		s.video=video;
+		s.imgerbario = imgerbario;
 
 		return (Scheda)s;
 	}
@@ -103,7 +105,7 @@ public class Fiore extends Scheda implements java.io.Serializable
         if(immagine.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(immagine));
@@ -118,10 +120,28 @@ public class Fiore extends Scheda implements java.io.Serializable
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 0, null));
+        if(imgerbario.length()>0)
+        {
+                nodes.addElement(new PRBMParserNode('I',"scheda.imgerbario", null, 1, null));
+                nodes.addElement(new PRBMParserNode('S',"scheda.imgerbario.src", imgerbario.substring(imgerbario.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            	ImageInfo ii = new ImageInfo();
+            	try {
+            		ii.setInput(new FileInputStream(imgerbario));
+    				if (!ii.check()) {
+    					System.err.println("Not a supported image file format.");
+    				} else {
+    					nodes.addElement(new PRBMParserImgDimensionNode('C', "scheda.imgerbario.dimensioni", null, 0, null, ii.getWidth(), ii.getHeight()));
+    				}
+            	} catch(FileNotFoundException fnfe) {
+    				System.err.println("File not found: " + imgerbario);
+            	}
+            }
+            else
+                nodes.addElement(new PRBMParserNode('I',"scheda.imgerbario", null, 0, null));
         if(video.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 0, null));
@@ -195,14 +215,22 @@ public class Fiore extends Scheda implements java.io.Serializable
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.curiosita", null, 0, null));
-        parser = new PRBMParser("template\\"+template+"\\fiore.tmpl", file, nodes);
+        parser = new PRBMParser("template" + File.pathSeparator + template + "fiore.tmpl", file, nodes);
         parser.parse();
 
         if(immagine.length()!=0)
         {
             File f=new File(immagine);
             if(f.exists())
-                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
+            else
+                System.out.println("Errore");
+        }
+        if(imgerbario.length()!=0)
+        {
+            File f=new File(imgerbario);
+            if(f.exists())
+                DiskUtil.copyFile(imgerbario,dir+imgerbario.substring(imgerbario.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -210,7 +238,7 @@ public class Fiore extends Scheda implements java.io.Serializable
         {
             File f=new File(video);
             if(f.exists())
-                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }
