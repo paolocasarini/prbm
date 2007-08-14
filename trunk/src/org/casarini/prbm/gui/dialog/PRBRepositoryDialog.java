@@ -63,7 +63,7 @@ public class PRBRepositoryDialog extends Dialog implements WindowListener, Actio
      * @param repositoryPath il path completo del repository caricato.
      */
     public void setTitle(String repositoryPath) {
-        super.setTitle(repositoryPath.substring(repositoryPath.lastIndexOf(File.pathSeparatorChar)+1));        
+        super.setTitle(repositoryPath.substring(repositoryPath.lastIndexOf(File.separatorChar)+1));        
     }
     
     // START implementazione WindowListener

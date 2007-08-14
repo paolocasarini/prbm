@@ -130,7 +130,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         if(immagine.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.separatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(immagine));
@@ -148,7 +148,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         if(imgtracce.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.imgtracce", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.imgtracce.src", imgtracce.substring(imgtracce.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.imgtracce.src", imgtracce.substring(imgtracce.lastIndexOf(File.separatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(imgtracce));
@@ -166,7 +166,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         if(imgescrementi.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.imgescrementi", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.imgescrementi.src", imgescrementi.substring(imgescrementi.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.imgescrementi.src", imgescrementi.substring(imgescrementi.lastIndexOf(File.separatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(imgescrementi));
@@ -184,14 +184,14 @@ public class Fauna extends Scheda implements java.io.Serializable
         if(audio.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.audio", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.audio.src", audio.substring(audio.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.audio.src", audio.substring(audio.lastIndexOf(File.separatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.audio", null, 0, null));
         if(video.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.separatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 0, null));
@@ -300,14 +300,14 @@ public class Fauna extends Scheda implements java.io.Serializable
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.curiosita", null, 0, null));
-        parser = new PRBMParser("template" + File.pathSeparator + template + File.pathSeparator + "fauna.tmpl", file, nodes);
+        parser = new PRBMParser("template" + File.separator + template + File.separator + "fauna.tmpl", file, nodes);
         parser.parse();
 
         if(imgtracce.length()!=0)
         {
             File f=new File(imgtracce);
             if(f.exists())
-                DiskUtil.copyFile(imgtracce,dir+imgtracce.substring(imgtracce.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(imgtracce,dir+imgtracce.substring(imgtracce.lastIndexOf(File.separatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -315,7 +315,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             File f=new File(imgescrementi);
             if(f.exists())
-                DiskUtil.copyFile(imgescrementi,dir+imgescrementi.substring(imgescrementi.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(imgescrementi,dir+imgescrementi.substring(imgescrementi.lastIndexOf(File.separatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -323,7 +323,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             File f=new File(immagine);
             if(f.exists())
-                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.separatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -331,7 +331,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             File f=new File(audio);
             if(f.exists())
-                DiskUtil.copyFile(audio,dir+audio.substring(audio.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(audio,dir+audio.substring(audio.lastIndexOf(File.separatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -339,7 +339,7 @@ public class Fauna extends Scheda implements java.io.Serializable
         {
             File f=new File(video);
             if(f.exists())
-                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.pathSeparatorChar)+1));
+                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.separatorChar)+1));
             else
                 System.out.println("Errore");
         }

@@ -49,7 +49,7 @@ public class TemplateBox extends Dialog implements ActionListener
         template.setBounds(75,55,200,24);
         File homefile = new File("");
         String home=homefile.getAbsolutePath();
-        home += File.pathSeparator + "template";
+        home += File.separator + "template";
 		File[] list=(new File(home)).listFiles();
         for(int i=0;i<list.length;i++)
         	if(list[i].isDirectory())
