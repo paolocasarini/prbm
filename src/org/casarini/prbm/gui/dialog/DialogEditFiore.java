@@ -39,10 +39,10 @@ public class DialogEditFiore extends DefaultDialogEdit
 	private static final long serialVersionUID = -5564741630706822733L;
 
 	Panel panel,panel1,panel2;
-    DimButton okbutton,cancelbutton,bPrev,bSucc,browse,browseV,iPrev,iSucc;
+    DimButton okbutton,cancelbutton,bPrev,bSucc,browse,browseE,browseV,iPrev,iSucc;
     CardLayout lay;
     Font fontN,fontB;
-    CTextField tfDidascalia,tfNomeC,tfNomeS,tfPetali,tfAltezza,tfImmagine,tfVideo;
+    CTextField tfDidascalia,tfNomeC,tfNomeS,tfPetali,tfAltezza,tfImmagine,tfVideo,tfImgErbario;
     CTextField tfGiorno,tfMese,tfAnno,tfOra,tfMinuti,tfSecondi;
     TextArea taDesFiore,taDesFoglia,taHabitat,taDistribuzione,taProprieta,taCuriosita;
     IconViewer cIcona;
@@ -213,6 +213,17 @@ public class DialogEditFiore extends DefaultDialogEdit
 		browse.setLabel("Sfoglia");
 		browse.setBounds(423,279,62,20);
 		panel1.add(browse);
+		Label label17= new Label("Img. Erbario:");
+		label17.setBounds(9,306,80,12);
+		label17.setFont(fontB);
+		panel1.add(label17);
+		tfImgErbario = new CTextField(CTextField.CTF_ALL,255);
+		tfImgErbario.setBounds(95,303,325,18);
+		panel1.add(tfImgErbario);
+		browseE=new DimButton(62,20);
+		browseE.setLabel("Sfoglia");
+		browseE.setBounds(423,302,62,20);
+		panel1.add(browseE);
 		iPrev = new DimButton(16,14);
 		iPrev.setActionCommand("iprev");
 		iPrev.setLabel("<");
@@ -316,6 +327,7 @@ public class DialogEditFiore extends DefaultDialogEdit
         bPrev.addMouseListener(aSymMouse);
         bSucc.addMouseListener(aSymMouse);
 		browse.addMouseListener(aSymMouse);
+		browseE.addMouseListener(aSymMouse);
 		browseV.addMouseListener(aSymMouse);
 		SymKey aSymKey = new SymKey();
 		tfDidascalia.addKeyListener(aSymKey);
@@ -363,6 +375,7 @@ public class DialogEditFiore extends DefaultDialogEdit
         taProprieta.setText(scheda.proprieta);
         taCuriosita.setText(scheda.curiosita);
         tfImmagine.setText(scheda.immagine);
+        tfImgErbario.setText(scheda.imgerbario);
         tfVideo.setText(scheda.video);
 	}
 
@@ -409,6 +422,8 @@ public class DialogEditFiore extends DefaultDialogEdit
 				bSucc_MouseClick(event);
 			else if (object == browse)
 				browseFile(tfImmagine,"Scegli l'immagine...");
+			else if (object == browseE)
+				browseFile(tfImgErbario, "Scegli l'immagine per l'erbario...");
 			else if (object == browseV)
 				browseFile(tfVideo,"Scegli il video...");
 			else if (object == iPrev)
@@ -515,6 +530,20 @@ public class DialogEditFiore extends DefaultDialogEdit
 			} else {
 				scheda.immagine = "";
 			}
+			
+			if (tfImgErbario.getText().length()!=0) {
+				f = new File(tfImgErbario.getText());
+				if (f.exists() && f.isAbsolute() && f.isFile()) {
+		            scheda.imgerbario = tfImgErbario.getText();
+				} else {
+	                AttentionDialog d = new AttentionDialog(parent,"ATTENZIONE!","Il file immagine per l'erbario "+tfImmagine.getText()+" non è corretto!");
+					d.display();
+		            return;
+				}
+			} else {
+				scheda.immagine = "";
+			}
+			
 			if(tfVideo.getText().length()!=0)
 			{
 				f=new File(tfVideo.getText());
