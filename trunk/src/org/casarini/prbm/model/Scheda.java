@@ -81,7 +81,7 @@ public class Scheda implements Serializable
         if(immagine.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(immagine));
@@ -101,20 +101,20 @@ public class Scheda implements Serializable
         if(video.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 0, null));
         nodes.addElement(new PRBMParserNode('S',"scheda.dataora.value", TimeStamp.toHtml(timestamp), 0, null));
         nodes.addElement(new PRBMParserNode('S',"scheda.note", note, 0, null));
-        parser = new PRBMParser("template\\"+template+"\\paesaggio.tmpl", file, nodes);
+        parser = new PRBMParser("template" + File.pathSeparator + template + File.pathSeparator + "paesaggio.tmpl", file, nodes);
         parser.parse();
 
         if(immagine.length()!=0)
         {
             File f=new File(immagine);
             if(f.exists())
-                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -122,7 +122,7 @@ public class Scheda implements Serializable
         {
             File f=new File(video);
             if(f.exists())
-                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }

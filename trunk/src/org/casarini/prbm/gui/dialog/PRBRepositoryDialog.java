@@ -21,6 +21,7 @@ package org.casarini.prbm.gui.dialog;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 import org.casarini.prbm.gui.PRB;
 import org.casarini.prbm.gui.component.PRBRepository;
@@ -62,7 +63,7 @@ public class PRBRepositoryDialog extends Dialog implements WindowListener, Actio
      * @param repositoryPath il path completo del repository caricato.
      */
     public void setTitle(String repositoryPath) {
-        super.setTitle(repositoryPath.substring(repositoryPath.lastIndexOf("\\")+1));        
+        super.setTitle(repositoryPath.substring(repositoryPath.lastIndexOf(File.pathSeparatorChar)+1));        
     }
     
     // START implementazione WindowListener

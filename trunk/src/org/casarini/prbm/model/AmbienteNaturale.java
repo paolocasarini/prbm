@@ -106,7 +106,7 @@ public class AmbienteNaturale extends Scheda implements java.io.Serializable
         if(immagine.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.immagine", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.immagine.src", immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         	ImageInfo ii = new ImageInfo();
         	try {
         		ii.setInput(new FileInputStream(immagine));
@@ -124,14 +124,14 @@ public class AmbienteNaturale extends Scheda implements java.io.Serializable
         if(audio.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.audio", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.audio.src", audio.substring(audio.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.audio.src", audio.substring(audio.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.audio", null, 0, null));
         if(video.length()>0)
         {
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 1, null));
-            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf("\\")+1), 0, null));
+            nodes.addElement(new PRBMParserNode('S',"scheda.video.src", video.substring(video.lastIndexOf(File.pathSeparatorChar)+1), 0, null));
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.video", null, 0, null));
@@ -212,14 +212,14 @@ public class AmbienteNaturale extends Scheda implements java.io.Serializable
         }
         else
             nodes.addElement(new PRBMParserNode('I',"scheda.negativo", null, 0, null));
-        parser = new PRBMParser("template\\"+template+"\\ambnat.tmpl", file, nodes);
+        parser = new PRBMParser("template" + File.pathSeparator + template + File.pathSeparator + "ambnat.tmpl", file, nodes);
         parser.parse();
 
         if(immagine.length()!=0)
         {
             File f=new File(immagine);
             if(f.exists())
-                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(immagine,dir+immagine.substring(immagine.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -227,7 +227,7 @@ public class AmbienteNaturale extends Scheda implements java.io.Serializable
         {
             File f=new File(audio);
             if(f.exists())
-                DiskUtil.copyFile(audio,dir+audio.substring(audio.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(audio,dir+audio.substring(audio.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }
@@ -235,7 +235,7 @@ public class AmbienteNaturale extends Scheda implements java.io.Serializable
         {
             File f=new File(video);
             if(f.exists())
-                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf("\\")+1));
+                DiskUtil.copyFile(video,dir+video.substring(video.lastIndexOf(File.pathSeparatorChar)+1));
             else
                 System.out.println("Errore");
         }
