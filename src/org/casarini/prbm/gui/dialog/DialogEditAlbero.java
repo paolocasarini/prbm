@@ -190,7 +190,6 @@ public class DialogEditAlbero extends DefaultDialogEdit
 		panel1.add(label6);
 		taPortamento = new TextArea();
 		taPortamento.setBounds(9,194,476,54);
-		taPortamento.setBackground(Color.yellow);
 		panel1.add(taPortamento);
 		Label label7 = new Label("Corteccia:");
 		label7.setBounds(9,260,102,12);
@@ -198,7 +197,6 @@ public class DialogEditAlbero extends DefaultDialogEdit
 		panel1.add(label7);
 		taCorteccia = new TextArea();
 		taCorteccia.setBounds(9,273,476,54);
-		taCorteccia.setBackground(Color.yellow);
 		panel1.add(taCorteccia);
 		iPrev = new DimButton(16,14);
 		iPrev.setActionCommand("iprev");
@@ -495,33 +493,14 @@ public class DialogEditAlbero extends DefaultDialogEdit
 		    if(numlay!=1){lay.first(panel);numlay=1;}
 		    taDesAlbero.requestFocus();
 		}
-	    else if((port=taPortamento.getText()).length()==0)
-	    {
-	        AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Il campo Portamento non può essere vuoto.");
-		    d.display();
-		    if(numlay!=1){lay.first(panel);numlay=1;}
-		    taPortamento.requestFocus();
-		}
-	    else if((cort=taCorteccia.getText()).length()==0)
-	    {
-	        AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Il campo Corteccia non può essere vuoto.");
-		    d.display();
-		    if(numlay!=1){lay.first(panel);numlay=1;}
-		    taCorteccia.requestFocus();
-		}
-/*		else if((icona=((String)nomiImg.elementAt(lIcona.getSelectedIndex()))).length()==0)
-	    {
-	        AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Deve essere selezionata una icona.");
-		    d.display();
-		}*/
 		else
 		{
             rs.title=didascalia;
             scheda.didascalia=didascalia;
             scheda.nomeComune=nomeC;
             scheda.desAlbero=desA;
-            scheda.portamento=port;
-            scheda.corteccia=cort;
+            scheda.portamento=taPortamento.getText();
+            scheda.corteccia=taCorteccia.getText();
             //rs.scheda.icona=icona;
             if(tfGiorno.getText().length()!=0||tfMese.getText().length()!=0||
                tfAnno.getText().length()!=0||tfOra.getText().length()!=0||
