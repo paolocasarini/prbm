@@ -21,7 +21,7 @@
   </target>
 
   <target name="compile" depends="prepare" description="compila il codice sorgente" >
-    <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${src}" destdir="${build}" encoding="ISO-8859-1"/>
   </target>
 
   <target name="dist" depends="compile" description="genera la distribuzione" >
