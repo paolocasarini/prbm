@@ -38,6 +38,7 @@ import org.casarini.prbm.gui.dialog.TemplateBox;
 import org.casarini.prbm.model.DataTable;
 import org.casarini.prbm.model.PRBParam;
 import org.casarini.prbm.model.PRBRepositoryData;
+import org.casarini.prbm.util.RunnerConfig;
 
 public class PRB extends Frame implements WindowListener, ActionListener, ComponentListener {
 	private static final long serialVersionUID = 3914113082433881542L;
@@ -220,9 +221,7 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
 
     // START implementazione WindowListener
     public void windowClosing(WindowEvent e) {
-        setVisible(false);
-        dispose();
-        System.exit(0);
+    	selectedExit();
     }
     public void windowOpened(WindowEvent e) {}
     public void windowClosed(WindowEvent e) {}
@@ -270,6 +269,7 @@ public class PRB extends Frame implements WindowListener, ActionListener, Compon
     //STOP implementazione ActionListener
 
     public static void main(String args[]) {
+    	RunnerConfig.getInstance();
         new PRB();
     }
     
