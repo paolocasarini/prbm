@@ -21,6 +21,8 @@ package org.casarini.prbm.gui.dialog;
 import java.awt.*;
 import java.awt.event.*;
 
+import org.casarini.prbm.util.RunnerConfig;
+
 public class QuitBox extends Dialog implements ActionListener
 {
 	private static final long serialVersionUID = -1624053868644371450L;
@@ -64,6 +66,7 @@ public class QuitBox extends Dialog implements ActionListener
     	    dispose();
             parent.setVisible(false);
             parent.dispose();
+            RunnerConfig.getInstance().save();
             System.exit(0);
         }
         else if(cmd.equalsIgnoreCase("OoPs"))

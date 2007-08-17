@@ -30,7 +30,6 @@ import org.casarini.prbm.model.Albero;
 import org.casarini.prbm.model.Resource;
 import org.casarini.prbm.model.TimeStamp;
 import org.casarini.prbm.util.XMLDirectoryList;
-import org.casarini.prbm.util.DiskUtil;
 import org.casarini.prbm.util.IconFactory;
 
 
@@ -606,45 +605,6 @@ public class DialogEditAlbero extends DefaultDialogEdit
 	        taHabitat.requestFocus();
 	    }
 	    numlay++;
-	}
-	
-	void browseFile(TextField tf,String title)
-	{
-		FileDialog fd=new FileDialog(parent,title,FileDialog.LOAD);
-		File iFile;
-
-		//Setto la directory e il nome file all'interno del dialog
-		iFile=new File(tf.getText());
-		if(iFile.exists() && iFile.isFile() && iFile.isAbsolute())
-		{
-			fd.setDirectory(iFile.getParent());
-			fd.setFile(iFile.getName());
-		}
-		else
-		{
-			if(((PRB)parent).c_param.dir.length()>0)
-				fd.setDirectory(DiskUtil.getRealDir(((PRB)parent).c_param.dir));
-			else
-				fd.setDirectory(".");
-		}
-
-		//mostro il dialog
-		fd.setVisible(true);
-
-		//catturo il nome file
-		if(fd.getFile()!=null)
-		{
-			String strFile=fd.getDirectory()+fd.getFile();
-			File oFile=new File(strFile);
-			if(!oFile.exists())
-			{
-				AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Il file "+strFile+" non esiste!!");
-				d.display();
-			}
-			else
-				tf.setText(strFile);
-		}
-		fd.dispose();
 	}
 
     class SymKey extends java.awt.event.KeyAdapter
