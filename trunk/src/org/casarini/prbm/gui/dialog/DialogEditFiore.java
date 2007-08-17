@@ -86,7 +86,7 @@ public class DialogEditFiore extends DefaultDialogEdit
 
 		setLayout(new BorderLayout(5,5));
 		setVisible(false);
-		setSize(getInsets().left + getInsets().right + 500, getInsets().top + getInsets().bottom + 415);
+		setSize(getInsets().left + getInsets().right + 500, getInsets().top + getInsets().bottom + 430);
 		Label label1 = new Label("Proprietà scheda Fiore/Erba",Label.CENTER);
 		label1.setFont(new Font("Dialog", Font.BOLD, 14));
 		add("North",label1);
