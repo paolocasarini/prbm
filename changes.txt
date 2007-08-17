@@ -5,6 +5,13 @@ PRBM - Percorso Rettificato Belga Multimediale
 ! Bug fix
 - Note
 
+Versione 0.6.9
+  # Memorizzazione ultima cartella aperta	
+  # Alla chiusura del programma controllo sul raccoglitore non salvato
+  # Due campi foto per la scheda dei fiori
+  ! Nella scheda "alberi" alcuni campi in giallo ma non obbligatori
+  # Introdurre File.separatorChar nella gestione dei path
+  - Versione realizzata sotto Mac OS X
 Versione 0.6.8
   - Con l'occasione di mettere le mani al codice per fare eseguire
     correttamente il prbm ad una jvm 1.5 ho fatto alcuni interventi di 

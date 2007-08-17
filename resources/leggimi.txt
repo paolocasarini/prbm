@@ -2,7 +2,7 @@
       PRBM - Percorso Rettificato belga Multimediale
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-                     versione 0.6.8
+                     versione 0.6.9
    
 Requisiti
 ~~~~~~~~~
