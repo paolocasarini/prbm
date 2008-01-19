@@ -1392,14 +1392,14 @@ public class Tabella extends Canvas implements MouseListener,ActionListener
         cols[2]="traccia.dxn";
         cols[3]="traccia.dxf";
         tnodes = new Vector();
-        for(int i=m_row-1, j=1;i>=0;i--,j++)
+        for(int i=m_row-1; i >= 0; i--)
         {
             Passo p=dt.getPasso(i);
-            tnode = new PRBMParserNode('S',"traccia.data.dir",Integer.toString(p.azimut),j,null);
+            tnode = new PRBMParserNode('S',"traccia.data.dir",Integer.toString(p.azimut),i+1,null);
             tnodes.addElement(tnode);
-            tnode = new PRBMParserNode('S',"traccia.data.dist",Integer.toString(p.metri),j,null);
+            tnode = new PRBMParserNode('S',"traccia.data.dist",Integer.toString(p.metri),i+1,null);
             tnodes.addElement(tnode);
-            tnode = new PRBMParserNode('S',"traccia.data.min",Integer.toString(p.tempo),j,null);
+            tnode = new PRBMParserNode('S',"traccia.data.min",Integer.toString(p.tempo),i+1,null);
             tnodes.addElement(tnode);
 
             for (int col=0; col<4; col++)
