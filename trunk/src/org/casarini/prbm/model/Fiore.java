@@ -62,6 +62,7 @@ public class Fiore extends Scheda implements java.io.Serializable
         curiosita=new String("");
         immagine=new String("");
         video=new String("");
+        imgerbario = new String("");
     }
     
 	public Scheda copy()
