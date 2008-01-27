@@ -540,7 +540,7 @@ public class DialogEditFiore extends DefaultDialogEdit
 		            return;
 				}
 			} else {
-				scheda.immagine = "";
+				scheda.imgerbario = "";
 			}
 			
 			if(tfVideo.getText().length()!=0)
