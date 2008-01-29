@@ -472,7 +472,7 @@ public class DialogEditAlbero extends DefaultDialogEdit
 
 	void okbutton_MouseClick(java.awt.event.MouseEvent event)
 	{
-	    String didascalia,nomeC,desA,port,cort;
+	    String didascalia,nomeC,desA;
 	    if((didascalia=tfDidascalia.getText()).length()==0)
 	    {
 	        AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Il campo Didascalia non può essere vuoto.");
