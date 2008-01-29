@@ -9,7 +9,7 @@
   <property name="dist"  location="dist"/>
   <property name="package"  location="package"/>
   <property name="resources" location="resources"/>
-  <property name="release" value="0.6.9"/>
+  <property name="release" value="0.6.10"/>
 
   <target name="prepare" description="prepara l'ambiente di compilazione">
     <tstamp/>
