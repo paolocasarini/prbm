@@ -58,7 +58,9 @@ public class Scheda implements Serializable
 		s.icona=icona;
 		s.timestamp=timestamp;
 		s.note=note;
-
+		s.immagine=immagine;
+		s.video=video;
+		
 		return s;
 	}
     
