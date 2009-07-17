@@ -36,10 +36,85 @@ import org.casarini.prbm.util.IconFactory;
 public class DialogEditPaesaggio extends DefaultDialogEdit
 {
 	private static final long serialVersionUID = -7163576880980877540L;
+	
+	private static String[][] paesaggi = {
+		{"Paesaggio generico", "paesaggi/standard.gif"},
+		{"abbeveratoio", "paesaggi/abbeveratoio.gif"},
+		{"abbeveratoio con fontana", "paesaggi/abbeveratoio con fontana.gif"},
+		{"acquedotto", "paesaggi/acquedotto.gif"},
+		{"aeroporto", "paesaggi/aeroporto.gif"},
+		{"antenna per telecom.", "paesaggi/antennatelecom.gif"},
+		{"autostrada", "paesaggi/autostra.gif"},
+		{"baracca", "paesaggi/baracca.gif"},
+		{"campo da tennis", "paesaggi/campo_tennis.gif"},
+		{"capanna", "paesaggi/capanna.gif"},
+		{"cappella", "paesaggi/cappella.gif"},
+		{"casa in muratura", "paesaggi/casamura.gif"},
+		{"cascata", "paesaggi/cascata.gif"},
+		{"casello autostradale", "paesaggi/casello.gif"},
+		{"castello", "paesaggi/castello.gif"},
+		{"centrale idroelettrica", "paesaggi/centrale idroelettrica.gif"},
+		{"centrale termoelettrica", "paesaggi/centrale termoelettrica.gif"},
+		{"chiesa", "paesaggi/chiesa.gif"},
+		{"cimitero", "paesaggi/cimitero.gif"},
+		{"cisterna", "paesaggi/cisterna.gif"},
+		{"croce isolata", "paesaggi/crocefisso.gif"},
+		{"diga", "paesaggi/diga.gif"},
+		{"fabbrica", "paesaggi/fabbrica.gif"},
+		{"faro", "paesaggi/faro.gif"},
+		{"ferrovia", "paesaggi/ferrovia.gif"},	
+		{"filo spinato", "paesaggi/filospinato.gif"},
+		{"fiume grosso", "paesaggi/fiume grosso.gif"},
+		{"fiume piccolo", "paesaggi/fiume piccolo.gif"},
+		{"fontana", "paesaggi/fontana.gif"},
+		{"fumaiolo", "paesaggi/fumaiolo.gif"},
+		{"funicolare", "paesaggi/funicolare.gif"},
+		{"funivia", "paesaggi/funivia.gif"},
+		{"galleria autostradale", "paesaggi/galleria autostrada.gif"},
+		{"galleria ferroviaria", "paesaggi/gallferro.gif"},		
+		{"galleria stradale", "paesaggi/galleria stradale.gif"},
+		{"grotta", "paesaggi/grotta.gif"},
+		{"idroscalo", "paesaggi/idroscalo.gif"},
+		{"laghetto", "paesaggi/laghetto.gif"},
+		{"lago", "paesaggi/lago.gif"},
+		{"miniera", "paesaggi/miniera.gif"},
+		{"monumento notevole", "paesaggi/monumento notevole.gif"},
+		{"mulattiera", "paesaggi/mulattiera.gif"},
+		{"muro a calce", "paesaggi/muroacalce.gif"},
+		{"muro a secco o maceria", "paesaggi/muroasecco.gif"},
+		{"muro di sostegno", "paesaggi/murosostegno.gif"},
+		{"palizzata/staccionata", "paesaggi/staccionata.gif"},
+		{"passaggio a livello", "paesaggi/passlivello.gif"},	
+		{"pietra o colonna indicatrice", "paesaggi/pietra o colonna indicatrice.gif"},
+		{"ponte autostradale", "paesaggi/ponteautostrada.gif"},
+		{"ponte di barche", "paesaggi/pontebarche.gif"},
+		{"ponte ferroviario", "paesaggi/ponteferro.gif"},		
+		{"ponte pedonale", "paesaggi/pontepedonale.gif"},
+		{"ponte stradale", "paesaggi/ponte stradale.gif"},
+		{"porto", "paesaggi/porto.gif"},
+		{"pozzo d'acqua", "paesaggi/pozzo d'acqua.gif"},
+		{"pozzo di petrolio/gas", "paesaggi/pozzopetrolio.gif"},
+		{"punto di quota", "paesaggi/punto di quota.gif"},
+		{"rudere", "paesaggi/rudere.gif"},
+		{"sciovia (skylift)", "paesaggi/sciovia.gif"},
+		{"seggiovia", "paesaggi/seggiovia.gif"},
+		{"sentiero", "paesaggi/sentiero.gif"},
+		{"siepe", "paesaggi/siepe.gif"},
+		{"sorgente d'acqua", "paesaggi/sorgente d'acqua.gif"},
+		{"stazione di rifornimento", "paesaggi/stazione di rifornimento.gif"},
+		{"stazione ferroviaria", "paesaggi/stazferro.gif"},		
+		{"strada", "paesaggi/strada.gif"},
+		{"strada carreggiabile", "paesaggi/strada carreggiabile.gif"},
+		{"tabernacolo", "paesaggi/tabernacolo.gif"},
+		{"teleferica", "paesaggi/teleferica.gif"},		
+		{"traliccio corrente", "paesaggi/traliccio_corrente.gif"},
+		{"torre", "paesaggi/torre.gif"},
+		{"torrente", "paesaggi/torrente.gif"},
+		{"villa antica", "paesaggi/villaantica.gif"},		
+	};
 
 	Font fontN,fontB;
-    Vector nomiImg;
-    Vector imgIcone;
+    Vector<Image> imgIcone;
     Resource rs;
     PRB parent;
     
@@ -48,8 +123,7 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
 		super(parent, true);
 		this.rs=rs;
 		this.parent=parent;
-		nomiImg=new Vector();
-		imgIcone=new Vector();
+		imgIcone=new Vector<Image>();
 		setBackground(Color.lightGray);
 
 		fontN=new Font("Dialog", Font.PLAIN, 12);
@@ -178,157 +252,9 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
 		setTitle("Modifica Scheda Paesaggio");
 		//}}
 		
-		lIcona.add("Paesaggio generico");
-		nomiImg.addElement((Object) new String("paesaggi/standard.gif"));
-		lIcona.add("ferrovia");
-		nomiImg.addElement((Object) new String("paesaggi/ferrovia.gif"));		
-		lIcona.add("stazione ferroviaria");
-		nomiImg.addElement((Object) new String("paesaggi/stazferro.gif"));		
-		lIcona.add("galleria ferroviaria");
-		nomiImg.addElement((Object) new String("paesaggi/gallferro.gif"));		
-		lIcona.add("ponte ferroviario");
-		nomiImg.addElement((Object) new String("paesaggi/ponteferro.gif"));		
-		lIcona.add("passaggio a livello");
-		nomiImg.addElement((Object) new String("paesaggi/passlivello.gif"));		
-		lIcona.add("funicolare");
-		nomiImg.addElement((Object) new String("paesaggi/funicolare.gif"));
-		lIcona.add("teleferica");
-		nomiImg.addElement((Object) new String("paesaggi/teleferica.gif"));		
-		lIcona.add("funivia");
-		nomiImg.addElement((Object) new String("paesaggi/funivia.gif"));
-		lIcona.add("seggiovia");
-		nomiImg.addElement((Object) new String("paesaggi/seggiovia.gif"));
-		lIcona.add("sciovia (skylift)");
-		nomiImg.addElement((Object) new String("paesaggi/sciovia.gif"));
-		lIcona.add("autostrada");
-		nomiImg.addElement((Object) new String("paesaggi/autostra.gif"));
-		lIcona.add("casello autostradale");
-		nomiImg.addElement((Object) new String("paesaggi/casello.gif"));
-		lIcona.add("galleria autostradale");
-		nomiImg.addElement((Object) new String("paesaggi/galleria autostrada.gif"));
-		lIcona.add("ponte autostradale");
-		nomiImg.addElement((Object) new String("paesaggi/ponteautostrada.gif"));
-		lIcona.add("strada");
-		nomiImg.addElement((Object) new String("paesaggi/strada.gif"));
-		lIcona.add("galleria stradale");
-		nomiImg.addElement((Object) new String("paesaggi/galleria stradale.gif"));
-		lIcona.add("ponte stradale");
-		nomiImg.addElement((Object) new String("paesaggi/ponte stradale.gif"));
-		lIcona.add("ponte pedonale");
-		nomiImg.addElement((Object) new String("paesaggi/pontepedonale.gif"));
-		lIcona.add("ponte di barche");
-		nomiImg.addElement((Object) new String("paesaggi/pontebarche.gif"));
-		lIcona.add("strada carreggiabile");
-		nomiImg.addElement((Object) new String("paesaggi/strada carreggiabile.gif"));
-		lIcona.add("mulattiera");
-		nomiImg.addElement((Object) new String("paesaggi/mulattiera.gif"));
-		lIcona.add("sentiero");
-		nomiImg.addElement((Object) new String("paesaggi/sentiero.gif"));
-		lIcona.add("casa in muratura");
-		nomiImg.addElement((Object) new String("paesaggi/casamura.gif"));
-		lIcona.add("baracca");
-		nomiImg.addElement((Object) new String("paesaggi/baracca.gif"));
-		lIcona.add("capanna");
-		nomiImg.addElement((Object) new String("paesaggi/capanna.gif"));
-		lIcona.add("rudere");
-		nomiImg.addElement((Object) new String("paesaggi/rudere.gif"));
-		lIcona.add("stazione di rifornimento");
-		nomiImg.addElement((Object) new String("paesaggi/stazione di rifornimento.gif"));
-		lIcona.add("fabbrica");
-		nomiImg.addElement((Object) new String("paesaggi/fabbrica.gif"));
-		lIcona.add("centrale idroelettrica");
-		nomiImg.addElement((Object) new String("paesaggi/centrale idroelettrica.gif"));
-		lIcona.add("centrale termoelettrica");
-		nomiImg.addElement((Object) new String("paesaggi/centrale termoelettrica.gif"));
-		lIcona.add("chiesa");
-		nomiImg.addElement((Object) new String("paesaggi/chiesa.gif"));
-		lIcona.add("cappella");
-		nomiImg.addElement((Object) new String("paesaggi/cappella.gif"));
-		lIcona.add("tabernacolo");
-		nomiImg.addElement((Object) new String("paesaggi/tabernacolo.gif"));
-		lIcona.add("croce isolata");
-		nomiImg.addElement((Object) new String("paesaggi/crocefisso.gif"));
-		lIcona.add("cimitero");
-		nomiImg.addElement((Object) new String("paesaggi/cimitero.gif"));
-		lIcona.add("fumaiolo");
-		nomiImg.addElement((Object) new String("paesaggi/fumaiolo.gif"));
-		lIcona.add("torre");
-		nomiImg.addElement((Object) new String("paesaggi/torre.gif"));
-		lIcona.add("pietra o colonna indicatrice");
-		nomiImg.addElement((Object) new String("paesaggi/pietra o colonna indicatrice.gif"));
-		lIcona.add("castello");
-		nomiImg.addElement((Object) new String("paesaggi/castello.gif"));
-		lIcona.add("villa antica");
-		nomiImg.addElement((Object) new String("paesaggi/villaantica.gif"));
-		lIcona.add("monumento notevole");
-		nomiImg.addElement((Object) new String("paesaggi/monumento notevole.gif"));
-		lIcona.add("antenna per telecominicazioni");
-		nomiImg.addElement((Object) new String("paesaggi/antennatelecom.gif"));
-		lIcona.add("miniera");
-		nomiImg.addElement((Object) new String("paesaggi/miniera.gif"));
-		lIcona.add("pozzo di petrolio/gas");
-		nomiImg.addElement((Object) new String("paesaggi/pozzopetrolio.gif"));
-		lIcona.add("grotta");
-		nomiImg.addElement((Object) new String("paesaggi/grotta.gif"));
-		lIcona.add("faro");
-		nomiImg.addElement((Object) new String("paesaggi/faro.gif"));
-		lIcona.add("pozzo d'acqua");
-		nomiImg.addElement((Object) new String("paesaggi/pozzo d'acqua.gif"));
-		lIcona.add("sorgente d'acqua");
-		nomiImg.addElement((Object) new String("paesaggi/sorgente d'acqua.gif"));
-		lIcona.add("fontana");
-		nomiImg.addElement((Object) new String("paesaggi/fontana.gif"));
-		lIcona.add("cisterna");
-		nomiImg.addElement((Object) new String("paesaggi/cisterna.gif"));
-		lIcona.add("abbeveratoio");
-		nomiImg.addElement((Object) new String("paesaggi/abbeveratoio.gif"));
-		lIcona.add("abbeveratoio con fontana");
-		nomiImg.addElement((Object) new String("paesaggi/abbeveratoio con fontana.gif"));
-		lIcona.add("muro a calce");
-		nomiImg.addElement((Object) new String("paesaggi/muroacalce.gif"));
-		lIcona.add("muro a secco o maceria");
-		nomiImg.addElement((Object) new String("paesaggi/muroasecco.gif"));
-		lIcona.add("muro di sostegno");
-		nomiImg.addElement((Object) new String("paesaggi/murosostegno.gif"));
-		lIcona.add("palizzata/staccionata");
-		nomiImg.addElement((Object) new String("paesaggi/staccionata.gif"));
-		lIcona.add("siepe");
-		nomiImg.addElement((Object) new String("paesaggi/siepe.gif"));
-		lIcona.add("filo spinato");
-		nomiImg.addElement((Object) new String("paesaggi/filospinato.gif"));
-		lIcona.add("acquedotto");
-		nomiImg.addElement((Object) new String("paesaggi/acquedotto.gif"));
-		lIcona.add("torrente");
-		nomiImg.addElement((Object) new String("paesaggi/torrente.gif"));
-		lIcona.add("fiume piccolo");
-		nomiImg.addElement((Object) new String("paesaggi/fiume piccolo.gif"));
-		lIcona.add("fiume grosso");
-		nomiImg.addElement((Object) new String("paesaggi/fiume grosso.gif"));
-		lIcona.add("cascata");
-		nomiImg.addElement((Object) new String("paesaggi/cascata.gif"));
-		lIcona.add("laghetto");
-		nomiImg.addElement((Object) new String("paesaggi/laghetto.gif"));
-		lIcona.add("lago");
-		nomiImg.addElement((Object) new String("paesaggi/lago.gif"));
-		lIcona.add("diga");
-		nomiImg.addElement((Object) new String("paesaggi/diga.gif"));
-		lIcona.add("aeroporto");
-		nomiImg.addElement((Object) new String("paesaggi/aeroporto.gif"));
-		lIcona.add("idroscalo");
-		nomiImg.addElement((Object) new String("paesaggi/idroscalo.gif"));
-		lIcona.add("porto");
-		nomiImg.addElement((Object) new String("paesaggi/porto.gif"));
-		lIcona.add("punto di quota");
-		nomiImg.addElement((Object) new String("paesaggi/punto di quota.gif"));
-		lIcona.add("campo da tennis");
-		nomiImg.addElement((Object) new String("paesaggi/campo_tennis.gif"));
-		lIcona.add("traliccio corrente");
-		nomiImg.addElement((Object) new String("paesaggi/traliccio_corrente.gif"));
-
-		
-        for(int i=0;i<nomiImg.size();i++)
-        {
-            imgIcone.addElement(IconFactory.getInstance().getImage((String)nomiImg.elementAt(i)));
+        for(int i=0; i < paesaggi.length; i++) {
+        	lIcona.add(paesaggi[i][0]);
+        	imgIcone.addElement(IconFactory.getInstance().getImage(paesaggi[i][1]));
         }
         
         
@@ -366,8 +292,14 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
 		    tfMinuti.setText(t.nextToken());
 		    tfSecondi.setText(t.nextToken());
 		}
-		int sel=nomiImg.indexOf((Object)rs.scheda.icona);
-		if(sel!=-1)
+		int sel = -1;
+		for (int i = 0; i < paesaggi.length; i++) {
+			if (rs.scheda.icona.equals(paesaggi[i][1])) {
+				sel = i;
+				break;
+			}
+		}		
+		if(sel != -1)
 		{
   		    cIcona.setImage((Image)imgIcone.elementAt(sel));
             lIcona.select(sel);
@@ -446,16 +378,12 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
 		}
 	}
 
-	void lIcona_ItemStateChanged(java.awt.event.ItemEvent event)
-	{
-        int i=lIcona.getSelectedIndex();
-        cIcona.setImage((Image)imgIcone.elementAt(i));
-        //tfTitolo.setText(lIcona.getSelectedItem());
-
-		//{{CONNECTION
-		// Repaint the Canvas
-        cIcona.repaint();
-		//}}
+	void lIcona_ItemStateChanged(java.awt.event.ItemEvent event) {
+        int i = lIcona.getSelectedIndex();
+        if (i != -1) {
+        	cIcona.setImage((Image)imgIcone.elementAt(i));
+        	cIcona.repaint();
+        }
 	}
 
 	class SymMouse extends java.awt.event.MouseAdapter
@@ -476,13 +404,13 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
 
 	void okbutton_MouseClick(java.awt.event.MouseEvent event)
 	{
-	    String didascalia,icona;
+	    String didascalia;
 	    if((didascalia=tfTitolo.getText()).length()==0)
 	    {
 	        AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Il campo Didascalia non può essere vuoto.");
 		    d.display();
 		}
-		else if((icona=((String)nomiImg.elementAt(lIcona.getSelectedIndex()))).length()==0)
+		else if(lIcona.getSelectedIndex() == -1)
 	    {
 	        AttentionDialog d=new AttentionDialog(parent,"ATTENZIONE!","Deve essere selezionata una icona.");
 		    d.display();
@@ -491,7 +419,7 @@ public class DialogEditPaesaggio extends DefaultDialogEdit
 		{
             rs.title=didascalia;
             rs.scheda.didascalia=didascalia;
-            rs.scheda.icona=icona;
+            rs.scheda.icona = paesaggi[lIcona.getSelectedIndex()][1];
             if(tfGiorno.getText().length()!=0||tfMese.getText().length()!=0||
                tfAnno.getText().length()!=0||tfOra.getText().length()!=0||
                tfMinuti.getText().length()!=0||tfSecondi.getText().length()!=0)
