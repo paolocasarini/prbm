@@ -1,0 +1,257 @@
+PRBM - Percorso Rettificato Belga Multimediale
+
++ Aggiunte
+# Modifiche
+! Bug fix
+- Note
+
+Versione 0.6.10
+ ! Le schede dei fiori importate dal raccoglitore inserivano un errore al
+   momento della generazione HTML.
+ ! Nella scheda dei fiori se mancava l'immagine per l'erbario inseriva un
+   errore al momento della generazione HTML.
+!Le schede dei fiori nuove non memorizzavano il valore del campo 
+   relativo all'immagine non-erbario.
+ !Nella griglia HTML finale i dati della colonna centrale erano inseriti 
+   nella sequenza inversa.
+ ! Nell'operazione di copia/incolla dal raccoglitore alla griglia venivano
+   persi i percorsi degli elementi multimediali per la scheda "Paesaggio".
+
+Versione 0.6.9
+ # Il programma è completamente multipiattaforma dopo il cambio della 
+   gestione del carattere di separazione dei path.
+ + Ora viene memorizzato l'ultimo percorso nel caricamento degli elmenti 
+   multimediali, in modo da velocizzarne il puntamento.
+ + Se si cerca di chiudere il programma ed il raccoglitore ha delle 
+   schede non salvate il programma lo segnala.
+ + Aggiunto alla scheda dei fiori un secondo campo immagine per permettere 
+   di includere una foto al naturale ed una realizzata dall'erbario. 
+ ! Nella scheda degli alberi c'erano 2 campi con sfondo giallo ma in 
+   verità non erano obbligatori.
+ ! Risolti vari problemi nella generazione della presentazione finale 
+   legati alla nuova struttura della scheda dei fiori.
+ ! I dati della colonna centrale erano inseriti in ordine inverso 
+   (ultimo-primo).
+ ! Nel copiare una scheda "Paesaggio" dal raccoglitore alla griglia 
+   principale veniva perso il dato sull'immagine.
+
+Versione 0.6.8
+ - Con l'occasione di mettere le mani al codice per fare eseguire
+   correttamente il prbm ad una jvm 1.5 ho fatto alcuni interventi di 
+   refactoring 
+ # porting dell'applicazione su Java 1.5
+ ! Bug fixing 
+
+Versione 0.6.7
+ - Questa versione non doveva esserci ma il passo previsto per la 0.7.0 era
+   troppo grosso per il tempo a disposizione e quindi è stata fatta una nuova
+   minor release.
+ + Creazione del sito di progetto con la documentazione per la compilazione e
+   lo sviluppo dell'applicazione.
+ # Riorganizzazione della struttura dei sorgenti dell'applicazione.
+ + Creazione del file build.xml con i task per la compilazione, la
+   distribuzione e la pacchettizzazione.
+ + Aggiunto un nuovo comando per i template per la gestione delle dimensioni
+   delle immagini delle schede di osservazione.
+ ! Vari bug fix 
+
+Versione 0.6.6
+ - Questa versione e' l'ultima versione prima della 0.7.0. Gia' le versioni
+   0.6.4 e 0.6.5 erano delle versioni preparatorie.
+ # Modifica il comportamento della disponibilita' della voce "Salva" del menu
+   "File" e "Salva Raccolglitore" del menu "Strumenti": ora sono abilitate
+   quando sul percorso o sul raccoglitore rispettivamente ci sono delle
+   modifiche non salvate.
+   Prima doveva anche gia' essere stato scelto il nome del file su cui
+   salvare. In assenza di quest'ultimo, ora, viene mostrata la finestra
+   di dialogo per scegliere il nome.
+ # Modifica alla guida in HTML allegata: ora coerente con le modifiche fatte.
+   Era ferma alla versione 0.5!
+ # Modificata la voce del menu "Strumenti" "Carica Raccoglitore" in "Apri
+   Raccoglitore...".
+ + Aggiunti i template "fiori" ed "edera" al pacchetto.
+
+Versione 0.6.5
+ + Aggiunto il concetto di stato modificato anche per il PRB
+ # Modificata l'azione di creazione nuovo PRB in modo che faccia comparire
+   l'alert di eventuale perdita delle modifiche fatte solo se il PRB e' in
+   stato modificato.
+ # Modificata l'azione di apertura nuovo PRB in modo che faccia comparire,
+   se il PRB attuale si trova in stato modifcato, l'option pane che avvisa
+   della eventuale perdita dei dati non salvati.
+ # Modificata l'azione di apertura nuovo PRB in modo che metta come nome
+   del PRB sul titolo della applicazione il nome del file selezionato.
+ + Aggiunta l'azione di "Salva con nome" per il PRB
+ # Modificata l'azione di salvataggio del PRB per usare il nome del file
+   piuttosto che il titolo del PRB per salvare il PRB. Se chiamata con prbPath
+   non ancora impostato chiama la SAVEAS.
+ # Ogni modifica al Percorso Rettificato Belga imposta a true il flag che
+   indica se il PRB e' in stato modificato.
+ ! Corretto un errore che mandava in StackOverflow se si chiedeva di aprire un
+   raccoglitore e il raccoglitore attuale era in stato di modificato.
+
+Versione 0.6.4
+ # Refactoring isofunzionale del progetto con una suddivisione piu'
+   organica dei sorgenti in package.
+ ! Aggiunta l'icona arbusto.gif nella directory "finale/icone/alb" che era
+   presente solo nella directory "icone/alb".
+ ! Rinominate molte icone paesaggio all'interno della directory "paesaggi"
+   passando da .GIF a .gif.
+ + Aggiunta la gestione del path associato al raccoglitore. Aggiunta la voce
+   "Salva raccolgitore con nome" e cambiata la semantica del precedente "Salva
+   Raccoglitore". Anche "Carica raccoglitore gestisce lo stato di modifica
+   del raccolgitore e prima di caricarne uno nuovo chiede se si vogliono
+   scartare le modifiche fatte a quello attuale.
+ + Aggiunta la voce "Nascondi Raccoglitore".
+
+Versione 0.6.3
+ + Aggiunte le icone campo_tennis.gif (campo da tennis) e
+   traliccio_corrente.gif (traliccio corrente) alle possibilità di scelta
+   per la scheda parsaggio.
+ + Aggiunta l'icona arbusto.gif tra quelle selezionabili per la scheda di
+   tipo Albero/Arbusto.
+ # La scheda "Albero" si chiama ora "Albero/Arbusto". Questa dicitura compare
+   ogni volta che viene fatto riferimento in maniera stanadard a questa
+   scheda: menu contestuale per l'inserimento, titolo della scheda nel dialog
+   di modifica e nei dati di esportazione e didascalia di default.
+ ! Corrette le didascalie di default per le schede "Fiore/Erba" e "Cusiosità/
+   Osservazione". Mantenevano ancora il vecchio nome.
+
+Versione 0.6.2
+ ! Nel Dialog di modifica della scheda "Paesaggio" il campo didascalia non
+   viene piu' cambiato in corrispondenza del cambio dell'icona.
+ # In fase di esportazione in HTML tutti i file presenti nella directory del
+   template scelto vengono copiati nella root di esportazione. In questo modo
+   si possono aggiungere file di stile o immagini al template.
+
+Versione 0.6.1
+ + Aggiunti i campi Immagine e Video alla scheda "Paesaggio", questa aggiunta
+   ha rotto la compatibilita' con i file .prb creati con versioni precedenti.
+ # Modificato il dialog per la modifica del della scheda "Paesaggio" per
+   prevedere i nuovi due campi e la gestione della scelta dei file da
+   associare.
+ ! Corretto errore nel template "fauna.tmpl"
+ # Modificato il template "paesaggio.tmpl" per prevedere i nuovi due campi.
+ ! Eliminate molti dei messaggi di debug che venivano scritti su console
+   durante l'utilizzo dell'applicazione. Sono rimasti i messaggi d'errore
+   e alcuni messaggi di "alpha test".
+ - Questa versione, almeno dal punto di vista delle funzionalita' offerte,
+   e' quella che dovrebbe essere usata al campo 2002.
+
+Versione 0.6.0
+ # Modificata la tipologia di numerazione della versione con l'aggiunta di un
+   terzo numero per numerare le micro release.
+ + Aggiunto il Raccoglitore: visivamente e' una finestra nella quale si
+   preparare delle schede per un inserimento successivo. Ha le stesse
+   funzionalita' di una cella di un traccia.
+ + Aggiunto il Menu "strumenti" per la gestione del raccoglitore. Attraverso
+   questo menu e' possibile richiede la visualizzazione della finestra del
+   raccoglitore, salvarlo su disco o caricarne uno nuovo.
+ - Per spostare una scheda da il raccoglitore a una cella del traccirato o
+   viceversa bisogna usare il copia e incolla.
+ - Il Raccoglitore e' uno strumento per dare la possibilita' di lavorare in
+   piu' persone su uno stesso tracciato condividendo il materiale da loro
+   prodotto attraverso appunto lo scambio del contenuto del proprio
+   raccoglitore.
+ - Per ora e' previsto solo lo scambio dell'intero contenuto del raccoglitore
+   tramite file.
+
+Versione 0.5
+ ! Corretta l'esportazione dei file audio e video
+ # Modificata l'esportazione: ora si basa su template con tag proprietari
+ + Aggiunto un dialog per la scelta del template da utilizzare
+
+Versione 0.4
+ + gestione del doppio click sulle schede d'osservazione e sui dati di traccia
+ ! Il tasto destro funziona ora solo sugli elementi cliccabili e non anche
+   fuori dal tracciato
+ # Se si preme il tasto destro del mouse in una sezione laterale vuota compare
+   solo la voce "Aggiungi"
+ ! Dopo l'inserimento viene aggiornata la label della scheda d'osservazione
+ # Nel dialog-box dei "Parametri del PRB" le voci "titolo" e "località" ora
+   sono con la lettere iniziale maiuscola.
+ + Nel dialog-box dei "Parametri del PRB" se il campo data e' vuoto viene
+   impostata la data corrente
+ # Nella modifica della scheda Paesaggio la label "Icona" e stata cambiata in
+   "Elemento Paesaggistico"
+ + Impostati i titoli delle finestre delle modifiche delle schede.
+ # Nel Preview Icona e' stato aggiunto un riquadro bianco attorno alla
+   immagine per rendere immediatamente l'idea di come e' l'estetica dell'icona
+   nella pagina html con sfondo bianco.
+ # Nei dialog di modifica delle schede Meteo e Curiosità e' stata tolta la
+   label "Icona" per ragioni di spazio.
+ # Il campo Didascalia dei dialog di modifica non viene piu' inizializzato
+ # Per i campi che prevedono i nomi_file viene controllata l'esistenza del
+   file specificato
+ + Ora i campi nome_file devono contenere esclusivamente un nome_file
+   assoluto, esistente e che si riferisce ad un file (non a una dir). In
+   questo modo e' possibile specificare file anche non presenti nella dir del
+   programma.
+ + Nei dialog-box delle schede d'osservazione, a parte quello dei simboli
+   paesaggistici, e' stata aggiunta la possibilita' di scegliere una icona
+   differente da quella di default.
+ ! Soliti Bug fix in giro
+ - A parte rilevazione di bug fastidiosi dovrebbe essere la versione che
+   girera' al campo 2000
+
+Versione 0.3
+ - Scheda Meteo (Class, Dialog, Export)
+ - Scheda Monumento / Luogo Storico (Class, Dialog, Export)
+ - Scheda Intervista (Class, Dialog, Export)
+ - Scheda Fatto di Cronaca (Class, Dialog, Export)
+ - Viene fatta la copia delle immagine, dei file audio e dei video nella
+   esportazione (tutte le schede)
+ - Se il campo data delle schede e' vuoto e il campo data del PRB e' pieno,
+   la data generale viene messa nella scheda.
+ - apertura automatica della finestra di modifica quando si inserisce una
+   nuova scheda
+ - Implementato la copia di una scheda (modello clipboard copia-incolla)
+ - I campi obbligatori delle schede hanno uno sfondo giallo
+ - Bug fix in giro
+
+Rispetto alla riunione del 24 giugno manca:
+- esportazione html delle nuove schede:
+ - Meteo
+ - Monumento / Luogo Storico
+ - Intervista
+ - Fatto di Cronaca
+- Togliere i secondi dalle schede (mi sa che questa non la faro')
+- Scelta della icona da associare alla scheda (eccetto Paesaggio)
+
+Versione 0.2c
+ - cambiato html per visualizzare immagine per la selezione in pagina
+   principale della guida.
+ - la 'c' nel numero di versione sta per "campo" poiche' e' la versione che
+   ha girato al campo
+
+Versione 0.2
+ - la directory di output puo' essere ora sia assoluta che relativa (non
+   viene fatto ancora un controllo severo sulla dir impostata, quindi se si
+   sbaglia non ci sara' molto output)
+ - Conseguente cambiamento della gestione della dir dei tasto "Sfoglia"
+ - Cambio di standard nei nomi dei file HTML (vedi progetto)
+ - Viene prodotto il file info.html con i dati generali del percorso
+   raggiungibile dalla pagina iniziale cliccando sul titolo
+ - cambiato il riferimento alla guida HTML ora punta a "guida/index.html"
+ - Inserita gestione descrizione/immagine tracce ed escrementi della scheda
+   Fauna
+ - Cambiato il nome della scheda Curiosita' in Curiosita'/Osservazione
+ - Migliorato output timestamp
+ - Aggiornamento alle icone nuove
+ - vari bug fix
+ - la versione binaria viene ora distribuita con le classi raggruppate in un
+   unico file JAR (vedi readme.txt)
+ - altro ma non ricordo
+
+Versione 0.1
+ - porting da jre 1.1.3 a jre 1.1.7
+ - Aggiunta del campo "directory di output" nei parametri generali: e' la
+   directory nella quale verranno prodotti gli html e nella quale bisognera'
+   mettere le immagini, i video o i files sonori per la presentazione
+ - Aggiunta dei tasti sfoglia in tutti i dialog che ne necessitano
+ - aggiunto il campo video alla scheda fiore e albero
+ - aggiunto il campo video e audio alla scheda fauna
+ - modifiche nella produzione dell'html
+
+Versioni precedenti
+ - non ricordo
