@@ -26,7 +26,7 @@ public class AboutBox extends Dialog implements ActionListener
 {
 	private static final long serialVersionUID = 6394351472435394918L;
 
-	public static final String VERSION="0.6.9";
+	public static final String VERSION="0.6.10";
 	Label label1,label2,label3,label4,label5;
 	Button OKButton;
 
