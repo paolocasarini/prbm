@@ -1,4 +1,5 @@
 #summary Come compilare il progetto
+#labels Featured
 = Come compilare il PRBM =
 La compilazione del PRBM è un processo piuttosto semplice e che non dovrebbe impensierire nessuno sviluppatore Java, ma si è pensato che automatizzare tale processo e soprattutto dare uno strumento semplice per crearne una versione installabile ed eseguibile potesse facilitare chi volesse avvicinarsi al progetto per dare il proprio contributo.
 
